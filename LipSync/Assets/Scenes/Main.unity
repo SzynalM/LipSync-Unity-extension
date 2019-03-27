@@ -141,7 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08dd817166048d4580573cd86b89a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speechDictionary: {fileID: 1629118740}
   speechConfiguration: {fileID: 1629118741}
   spokenPhraseDisplayer: {fileID: 2137870527}
   inputManager: {fileID: 674784451}
@@ -670,7 +669,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1629118742}
   - component: {fileID: 1629118741}
-  - component: {fileID: 1629118740}
   m_Layer: 0
   m_Name: SpeechConfig
   m_TagString: Untagged
@@ -678,22 +676,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1629118740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1629118739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48e3331c1b1873a4bbe57ae61a86149b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dictionary:
-  - Michael
-  - Alex
-  - Olaf
 --- !u!114 &1629118741
 MonoBehaviour:
   m_ObjectHideFlags: 0
