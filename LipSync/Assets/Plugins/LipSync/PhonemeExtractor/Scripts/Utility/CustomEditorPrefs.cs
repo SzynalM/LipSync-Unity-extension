@@ -7,7 +7,7 @@
         public static readonly string dictionaryPath = "dictionaryPath";
         public static readonly string tempFolderPath = "tempFolderPath";
 
-        public static string[] GetCustomEditorPrefs()
+        public static string[] GetCustomEditorPrefsNames()
         {
             return new string[] { pluginPath, acousticModelPath, dictionaryPath, tempFolderPath };
         }

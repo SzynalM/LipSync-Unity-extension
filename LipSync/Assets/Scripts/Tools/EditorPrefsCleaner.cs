@@ -10,7 +10,7 @@ public class EditorPrefsCleaner
     [MenuItem("Tools/Phoneme Extractor/Restore default configuration")]
     private static void ClearEditorPrefs()
     {
-        foreach(string pref in CustomEditorPrefs.GetCustomEditorPrefs())
+        foreach(string pref in CustomEditorPrefs.GetCustomEditorPrefsNames())
         {
             EditorPrefs.DeleteKey(pref);
         }
