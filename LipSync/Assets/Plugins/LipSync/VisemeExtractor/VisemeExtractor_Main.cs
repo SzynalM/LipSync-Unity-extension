@@ -7,9 +7,10 @@
 
         private string stringToProcess = "";
 
-        public void ExtractVisemes()
+        public void ExtractVisemes(string phonemeFilePath)
         {
-            stringToProcess = diphthongSimplifier.SimplifyDiphthongs(phonemeFileLoader.LoadPhonemeFileContent());
+            stringToProcess = diphthongSimplifier.SimplifyDiphthongs(phonemeFileLoader.LoadPhonemeFileContent(phonemeFilePath));
+            UnityEngine.Debug.Log("String to process\n" + stringToProcess);
         }
     } 
 }

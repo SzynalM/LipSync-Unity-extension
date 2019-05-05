@@ -1,19 +1,25 @@
-﻿using PhonemeExtractor.SetupWindow;
+﻿using System;
 using System.IO;
+using UnityEngine;
 
 namespace VisemeExtractor
 {
     public class PhonemeFileLoader
     {
-        DataManager dataManager = new DataManager();
-        string pathToPhonemeFile = "";
-        string loadedText = "";
+        private const string tempPhonemeFileName = @"\tempPhonemes.txt"; //file name is hard coded in executable jar
 
-        public string LoadPhonemeFileContent()
+        public string LoadPhonemeFileContent(string filePath)
         {
-            pathToPhonemeFile = dataManager.LoadWindowData().TempFolderPath + @"\tempPhonemes.txt";
-            loadedText = File.ReadAllText(pathToPhonemeFile);
-            return loadedText;
+            filePath += tempPhonemeFileName;
+            try
+            {
+                return File.ReadAllText(filePath);
+            }
+            catch (Exception exception)
+            {
+                Debug.LogError($"Failed to load content from generated file at {filePath}.\nPlease check if Temp folder path is correctly set and try again.\n\n" + exception);
+            }
+            return string.Empty;
         }
     }
 }

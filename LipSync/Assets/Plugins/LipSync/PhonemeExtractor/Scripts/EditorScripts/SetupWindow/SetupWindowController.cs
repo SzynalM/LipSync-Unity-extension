@@ -18,7 +18,7 @@ namespace PhonemeExtractor.SetupWindow
         private static void InitializeWindow()
         {
             hasLoaded = false;
-            SetupWindowController window = (SetupWindowController)GetWindow(typeof(SetupWindowController));
+            SetupWindowController window = GetWindow<SetupWindowController>();
             window.name = "Phoneme Extractor Setup";
             window.minSize = windowSize;
             window.maxSize = windowSize;

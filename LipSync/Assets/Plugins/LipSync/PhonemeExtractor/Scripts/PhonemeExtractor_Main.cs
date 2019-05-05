@@ -3,12 +3,15 @@ using System.Diagnostics;
 using UnityEngine;
 using VisemeExtractor;
 using PhonemeExtractor.SetupWindow;
+using System;
 
 namespace PhonemeExtractor
 {
     //CMD Arguments: AcousticModel DictionaryPath WavFilePath TranscriptionString TempFolderPath
     public class PhonemeExtractor_Main : MonoBehaviour //monobehaviour to be deleted when there's a button running the function
     {
+        private event Action OnProcessStarted;
+        private event Action<string> OnProcessEnded;
         private DataManager dataManager = new DataManager();
         private VisemeExtractor_Main visemeExtractor = new VisemeExtractor_Main();
         private CurrentPaths currentPaths;
@@ -16,6 +19,7 @@ namespace PhonemeExtractor
         [ContextMenu("Extract phonemes")]
         public void RunPhonemeExtrapolator() //arguments string audioFilePath, string transcription will be added later
         {
+            Initialize();
             StartCoroutine(RunProcess(@"D:/Projects/LipSync/LipSync/Assets/Test/AudioFiles/test.wav", "One, zero, zero, one.")); //arguments are to be passed through the upper method
         }
 
@@ -29,6 +33,7 @@ namespace PhonemeExtractor
             {
                 FileName = "java",
                 UseShellExecute = true,
+                WindowStyle = ProcessWindowStyle.Minimized,
                 Arguments =
                      " -jar "
                     + currentPaths.PluginPath + " "
@@ -38,9 +43,21 @@ namespace PhonemeExtractor
                     + "\"" + transcription + "\" "
                     + currentPaths.TempFolderPath
             };
+            OnProcessStarted?.Invoke();
             javaPhonemeExtractor.Start();
             yield return new WaitUntil(() => javaPhonemeExtractor.HasExited == true);
-            visemeExtractor.ExtractVisemes();
+            OnProcessEnded?.Invoke(currentPaths.TempFolderPath);
+            Terminate();
+        }
+
+        private void Initialize() 
+        {
+            OnProcessEnded += visemeExtractor.ExtractVisemes;
+        }
+
+        private void Terminate()
+        {
+            OnProcessEnded -= visemeExtractor.ExtractVisemes;
         }
     }
 }
