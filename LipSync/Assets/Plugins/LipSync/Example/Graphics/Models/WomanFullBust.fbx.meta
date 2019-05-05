@@ -9,12 +9,14 @@ ModelImporter:
     100006: Hair_02
     100008: Head_Silent
     100010: //RootNode
+    100012: Eye_lashes
     400000: Coat
     400002: Eye
     400004: Hair_01
     400006: Hair_02
     400008: Head_Silent
     400010: //RootNode
+    400012: Eye_lashes
     2100000: Hair_01
     2100002: head
     2100004: Eye
@@ -24,15 +26,18 @@ ModelImporter:
     2300002: Eye
     2300004: Hair_01
     2300006: Hair_02
+    2300008: Eye_lashes
     3300000: Coat
     3300002: Eye
     3300004: Hair_01
     3300006: Hair_02
+    3300008: Eye_lashes
     4300000: Hair_01
     4300002: Head_Silent
     4300004: Eye
     4300006: Hair_02
     4300008: Coat
+    4300010: Eye_lashes
     9500000: //RootNode
     13700000: Head_Silent
   externalObjects:
