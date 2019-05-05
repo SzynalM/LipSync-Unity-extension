@@ -4,15 +4,15 @@ using UnityEngine.Windows.Speech;
 public class SpeechListener : MonoBehaviour
 {
     [SerializeField]
-    SpeechConfiguration speechConfiguration;
+    private SpeechConfiguration speechConfiguration;
 
     [SerializeField]
-    SpokenPhraseDisplayer spokenPhraseDisplayer;
+    private SpokenPhraseDisplayer spokenPhraseDisplayer;
 
     [SerializeField]
-    RealTimeInputManager inputManager;
+    private RealTimeInputManager inputManager;
 
-    DictationRecognizer phraseRecognizer;
+    private DictationRecognizer phraseRecognizer;
 
     void Start()
     {

@@ -1,7 +1,8 @@
 ﻿using System.Diagnostics;
 using UnityEngine;
+using PhonemeExtractor.SetupWindow;
 
-namespace PhonemeExtractor.SetupWindow
+namespace PhonemeExtractor
 {
     //CMD Arguments: AcousticModel DictionaryPath WavFilePath TranscriptionString TempFolderPath
     public class PhonemeExtractor_Main : MonoBehaviour //monobehaviour to be deleted when there's a button running the function
@@ -28,10 +29,6 @@ namespace PhonemeExtractor.SetupWindow
                 + currentPaths.TempFolderPath;
             UnityEngine.Debug.Log(javaPhonemeExtractor.StartInfo.Arguments);
             javaPhonemeExtractor.Start();
-
-
-            //javaPhonemeExtractor.StartInfo.Arguments =
-            //    " -jar D:/Projects/LipSync/LipSync/Assets/Plugins/PhonemeExtractor/PhonemeExtractor.jar D:/Projects/LipSync/LipSync/Assets/Plugins/PhonemeExtractor/RecognizerData/AcousticModel D:/Projects/LipSync/LipSync/Assets/Plugins/PhonemeExtractor/RecognizerData/cmudict-en-us.dict D:/Projects/LipSync/LipSync/Assets/Test/AudioFiles/test.wav \"one zero zero one\" D:/Projects/LipSync/LipSync/Assets/Plugins/PhonemeExtractor/Temp";
         }
     }
 }

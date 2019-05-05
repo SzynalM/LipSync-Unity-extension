@@ -89,7 +89,7 @@ namespace PhonemeExtractor.SetupWindow
                 Debug.LogWarning(WarningMessages.defaultTempFolderPathSet);
                 return DefaultPaths.defaultTempFolderPath;
             }
-            else
+            else 
             {
                 return string.Empty;
             }
