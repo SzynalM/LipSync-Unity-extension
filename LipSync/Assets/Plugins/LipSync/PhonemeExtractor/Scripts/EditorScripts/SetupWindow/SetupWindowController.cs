@@ -39,28 +39,28 @@ namespace PhonemeExtractor.SetupWindow
             GUILayout.Space(20);
 
             EditorGUI.BeginChangeCheck();
-            currentPaths.PluginPath = EditorGUILayout.TextField("Plugin path", currentPaths.PluginPath == string.Empty ? OnDefaultPathSet(ConfigDataType.Plugin) : currentPaths.PluginPath);
+            currentPaths.PluginPath = EditorGUILayout.TextField("Plugin path", currentPaths.PluginPath.Equals(DefaultPaths.defaultPluginPath) ? OnDefaultPathSet(ConfigDataType.Plugin) : currentPaths.PluginPath);
             if (EditorGUI.EndChangeCheck() == true)
             {
                 dataManager.SaveWindowData(ConfigDataType.Plugin, currentPaths.PluginPath);
             }
 
             EditorGUI.BeginChangeCheck();
-            currentPaths.AcousticModelPath = EditorGUILayout.TextField("Acoustic model path", currentPaths.AcousticModelPath == string.Empty ? OnDefaultPathSet(ConfigDataType.AcousticModel) : currentPaths.AcousticModelPath);
+            currentPaths.AcousticModelPath = EditorGUILayout.TextField("Acoustic model path", currentPaths.AcousticModelPath.Equals(DefaultPaths.defaultAcousticModelPath) ? OnDefaultPathSet(ConfigDataType.AcousticModel) : currentPaths.AcousticModelPath);
             if (EditorGUI.EndChangeCheck() == true)
             {
                 dataManager.SaveWindowData(ConfigDataType.AcousticModel, currentPaths.AcousticModelPath);
             }
 
             EditorGUI.BeginChangeCheck();
-            currentPaths.DictionaryPath = EditorGUILayout.TextField("Dictionary path", currentPaths.DictionaryPath == string.Empty ? OnDefaultPathSet(ConfigDataType.Dictionary) : currentPaths.DictionaryPath);
+            currentPaths.DictionaryPath = EditorGUILayout.TextField("Dictionary path", currentPaths.DictionaryPath.Equals(DefaultPaths.defaultDictionaryPath) ? OnDefaultPathSet(ConfigDataType.Dictionary) : currentPaths.DictionaryPath);
             if (EditorGUI.EndChangeCheck() == true)
             {
                 dataManager.SaveWindowData(ConfigDataType.Dictionary, currentPaths.DictionaryPath);
             }
 
             EditorGUI.BeginChangeCheck();
-            currentPaths.TempFolderPath = EditorGUILayout.TextField("Temp folder path", currentPaths.TempFolderPath == string.Empty ? OnDefaultPathSet(ConfigDataType.TempFolder) : currentPaths.TempFolderPath);
+            currentPaths.TempFolderPath = EditorGUILayout.TextField("Temp folder path", currentPaths.TempFolderPath.Equals(DefaultPaths.defaultTempFolderPath) ? OnDefaultPathSet(ConfigDataType.TempFolder) : currentPaths.TempFolderPath);
             if (EditorGUI.EndChangeCheck() == true)
             {
                 dataManager.SaveWindowData(ConfigDataType.TempFolder, currentPaths.TempFolderPath);
