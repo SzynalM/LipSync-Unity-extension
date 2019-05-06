@@ -1,8 +1,6 @@
-﻿using UnityEngine;
-
-namespace VisemeExtractor
+﻿namespace VisemeExtractor
 {
-    public class BlendShapeGetter : MonoBehaviour
+    public class BlendShapeInfo
     {
         public static int GetBlendShape(Viseme viseme)
         {

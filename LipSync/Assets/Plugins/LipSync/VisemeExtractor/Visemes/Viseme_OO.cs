@@ -2,11 +2,14 @@
 
 namespace VisemeExtractor
 {
-    public class Viseme_OO : Viseme
+    [System.Serializable]
+    public class Viseme_OO : Viseme, IVisemeCommand
     {
-        public override void ShowViseme(SkinnedMeshRenderer skinnedMeshRenderer, int intensity)
+        public Viseme_OO(float _intensity, float _pronunciationSpeed) : base(_intensity, _pronunciationSpeed) { }
+
+        public override void ShowViseme(SkinnedMeshRenderer skinnedMeshRenderer)
         {
-            skinnedMeshRenderer.SetBlendShapeWeight(BlendShapeGetter.GetBlendShape(this), intensity);
+            base.ShowViseme(skinnedMeshRenderer);
         }
     }
 }

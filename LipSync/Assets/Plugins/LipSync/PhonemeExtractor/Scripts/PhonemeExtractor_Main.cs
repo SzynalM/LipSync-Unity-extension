@@ -1,9 +1,9 @@
-﻿using System.Collections;
+﻿using PhonemeExtractor.SetupWindow;
+using System;
+using System.Collections;
 using System.Diagnostics;
 using UnityEngine;
 using VisemeExtractor;
-using PhonemeExtractor.SetupWindow;
-using System;
 
 namespace PhonemeExtractor
 {
@@ -50,7 +50,7 @@ namespace PhonemeExtractor
             Terminate();
         }
 
-        private void Initialize() 
+        private void Initialize()
         {
             OnProcessEnded += visemeExtractor.ExtractVisemes;
         }
