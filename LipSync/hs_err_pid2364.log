@@ -1,0 +1,154 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 8192 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:61), pid=2364, tid=16540
+#
+# JRE version:  (7.0_80-b15) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (24.80-b11 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000002a60800):  JavaThread "main" [_thread_in_vm, id=16540, stack(0x0000000002940000,0x0000000002a40000)]
+
+Stack: [0x0000000002940000,0x0000000002a40000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+
+[error occurred during error reporting (printing native stack), id 0xc0000005]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.util.Hashtable.entrySet()Ljava/util/Set;+18
+j  java.util.Hashtable.putAll(Ljava/util/Map;)V+1
+j  sun.misc.VM.saveAndRemoveProperties(Ljava/util/Properties;)V+20
+j  java.lang.System.initializeSystemClass()V+20
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000000000ae38800 JavaThread "Finalizer" daemon [_thread_blocked, id=17204, stack(0x000000000c0e0000,0x000000000c1e0000)]
+  0x000000000ae33800 JavaThread "Reference Handler" daemon [_thread_blocked, id=17196, stack(0x000000000bfe0000,0x000000000c0e0000)]
+=>0x0000000002a60800 JavaThread "main" [_thread_in_vm, id=16540, stack(0x0000000002940000,0x0000000002a40000)]
+
+Other Threads:
+  0x000000000ae30000 VMThread [stack: 0x000000000bee0000,0x000000000bfe0000] [id=16848]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000000002a5bd00] SymbolTable_lock - owner thread: 0x0000000002a60800
+
+Heap
+ PSYoungGen      total 37888K, used 655K [0x00000007d6000000, 0x00000007d8a00000, 0x0000000800000000)
+  eden space 32768K, 2% used [0x00000007d6000000,0x00000007d60a3dc8,0x00000007d8000000)
+  from space 5120K, 0% used [0x00000007d8500000,0x00000007d8500000,0x00000007d8a00000)
+  to   space 5120K, 0% used [0x00000007d8000000,0x00000007d8000000,0x00000007d8500000)
+ ParOldGen       total 86016K, used 0K [0x0000000782000000, 0x0000000787400000, 0x00000007d6000000)
+  object space 86016K, 0% used [0x0000000782000000,0x0000000782000000,0x0000000787400000)
+ PSPermGen       total 21504K, used 867K [0x000000077ce00000, 0x000000077e300000, 0x0000000782000000)
+  object space 21504K, 4% used [0x000000077ce00000,0x000000077ced8e58,0x000000077e300000)
+
+Card table byte_map: [0x0000000005c20000,0x0000000006040000] byte_map_base: 0x0000000002039000
+
+Polling page: 0x0000000001070000
+
+Code Cache  [0x0000000002b60000, 0x0000000002dd0000, 0x0000000005b60000)
+ total_blobs=76 nmethods=0 adapters=52 free_code_cache=48817Kb largest_free_block=49989056
+
+Compilation events (0 events):
+No events
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 1.289 loading class 0x0000000002aa69b0 done
+Event: 1.289 loading class 0x0000000002ab2b80
+Event: 1.289 loading class 0x0000000002ab2b80 done
+Event: 1.291 loading class 0x0000000002ab9880
+Event: 1.291 loading class 0x0000000002ace2a0
+Event: 1.291 loading class 0x0000000002aaea60
+Event: 1.291 loading class 0x0000000002aaea60 done
+Event: 1.291 loading class 0x0000000002ace2a0 done
+Event: 1.291 loading class 0x0000000002ab9880 done
+Event: 1.291 loading class 0x0000000002ab2570
+
+
+Dynamic libraries:
+0x00007ff6215c0000 - 0x00007ff6215f3000 	C:\Windows\System32\java.exe
+0x00007ffaa89b0000 - 0x00007ffaa8b9d000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffaa61c0000 - 0x00007ffaa6273000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffaa4a80000 - 0x00007ffaa4d13000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffaa6f00000 - 0x00007ffaa6fa3000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffaa6330000 - 0x00007ffaa63ce000 	C:\Windows\System32\msvcrt.dll
+0x00007ffaa7000000 - 0x00007ffaa709e000 	C:\Windows\System32\sechost.dll
+0x00007ffaa8850000 - 0x00007ffaa8972000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffaa6a60000 - 0x00007ffaa6bf7000 	C:\Windows\System32\USER32.dll
+0x00007ffaa4dd0000 - 0x00007ffaa4df0000 	C:\Windows\System32\win32u.dll
+0x00007ffaa70a0000 - 0x00007ffaa70c9000 	C:\Windows\System32\GDI32.dll
+0x00007ffaa59e0000 - 0x00007ffaa5b7a000 	C:\Windows\System32\gdi32full.dll
+0x00007ffaa5630000 - 0x00007ffaa56d0000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffaa5700000 - 0x00007ffaa57fa000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffa948c0000 - 0x00007ffa94b39000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.17763.475_none_05b43ca607202c6c\COMCTL32.dll
+0x00007ffaa6500000 - 0x00007ffaa682c000 	C:\Windows\System32\combase.dll
+0x00007ffaa4e10000 - 0x00007ffaa4e8e000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffaa6fd0000 - 0x00007ffaa6ffe000 	C:\Windows\System32\IMM32.DLL
+0x0000000068df0000 - 0x0000000068ec2000 	C:\Program Files\Java\jre7\bin\msvcr100.dll
+0x0000000068610000 - 0x0000000068de9000 	C:\Program Files\Java\jre7\bin\server\jvm.dll
+0x00007ffaa8630000 - 0x00007ffaa8638000 	C:\Windows\System32\PSAPI.DLL
+0x00007ffaa3580000 - 0x00007ffaa3589000 	C:\Windows\System32\WSOCK32.dll
+0x00007ffaa6d70000 - 0x00007ffaa6ddd000 	C:\Windows\System32\WS2_32.dll
+0x00007ffa9b440000 - 0x00007ffa9b464000 	C:\Windows\System32\WINMM.dll
+0x00007ffa9b410000 - 0x00007ffa9b43d000 	C:\Windows\System32\WINMMBASE.dll
+0x00007ffaa4e90000 - 0x00007ffaa4eda000 	C:\Windows\System32\cfgmgr32.dll
+0x0000000068600000 - 0x000000006860f000 	C:\Program Files\Java\jre7\bin\verify.dll
+0x00000000685d0000 - 0x00000000685f8000 	C:\Program Files\Java\jre7\bin\java.dll
+0x00000000685b0000 - 0x00000000685c6000 	C:\Program Files\Java\jre7\bin\zip.dll
+
+VM Arguments:
+java_command: D:/Projects/LipSync/LipSync/Assets\Plugins\LipSync\PhonemeExtractor\PhonemeExtractor.jar D:/Projects/LipSync/LipSync/Assets\Plugins\LipSync\PhonemeExtractor\RecognizerData\AcousticModel D:/Projects/LipSync/LipSync/Assets\Plugins\LipSync\PhonemeExtractor\RecognizerData\cmudict-en-us.dict Assets/Plugins/LipSync/Example/AudioFiles/Example_OneZeroZeroOne.wav One, zero, zero, one. D:/Projects/LipSync/LipSync/Assets\Plugins\LipSync\PhonemeExtractor\Temp
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;D:\Programs\SVN\bin;C:\Users\szync\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Java\jdk1.7.0_80\bin\javac.exe;D:\Programs\Adb\platform-tools;D:\Programs\SVN\bin;D:\Programs\Maven\apache-maven-3.6.1\bin;D:\Programs\Gradle\gradle-2.8\bin;
+USERNAME=szync
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 78 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 8.1 , 64 bit Build 9600 
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 78 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, erms, ht, tsc, tscinvbit
+
+Memory: 4k page, physical 8249472k(1947060k free), swap 18410748k(415364k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (24.80-b11) for windows-amd64 JRE (1.7.0_80-b15), built on Apr 10 2015 11:26:34 by "java_re" with unknown MS VC++:1600
+
+time: Sat May 11 17:06:53 2019
+elapsed time: 3 seconds
+

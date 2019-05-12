@@ -9,10 +9,12 @@ namespace PhonemeExtractor.SetupWindow
     {
 #if UNITY_EDITOR
         private DataManager dataManager = new DataManager();
-        private CurrentPaths currentPaths;
+        private WindowData windowData;
 
         private static Vector2 windowSize = new Vector2(900, 200);
         private static bool hasLoaded = false;
+
+        private bool saveDialogueNextToAudioFile = true;
 
         [MenuItem("Tools/Phoneme Extractor/Setup")]
         private static void InitializeWindow()
@@ -30,7 +32,8 @@ namespace PhonemeExtractor.SetupWindow
         {
             if (hasLoaded == false)
             {
-                currentPaths = dataManager.LoadWindowData();
+                windowData = dataManager.LoadWindowData();
+                saveDialogueNextToAudioFile = EditorPrefs.GetBool(CustomEditorPrefs.dialogueToggle);
                 hasLoaded = true;
             }
 
@@ -39,32 +42,51 @@ namespace PhonemeExtractor.SetupWindow
             GUILayout.Space(20);
 
             EditorGUI.BeginChangeCheck();
-            currentPaths.PluginPath = EditorGUILayout.TextField("Plugin path", currentPaths.PluginPath.Equals(DefaultPaths.defaultPluginPath) ? OnDefaultPathSet(ConfigDataType.Plugin) : currentPaths.PluginPath);
+            windowData.PluginPath = EditorGUILayout.TextField("Plugin path", windowData.PluginPath.Equals(DefaultPaths.defaultPluginPath) ? OnDefaultPathSet(ConfigDataType.Plugin) : windowData.PluginPath);
             if (EditorGUI.EndChangeCheck() == true)
             {
-                dataManager.SaveWindowData(ConfigDataType.Plugin, currentPaths.PluginPath);
+                dataManager.SaveWindowData(ConfigDataType.Plugin, windowData.PluginPath);
             }
 
             EditorGUI.BeginChangeCheck();
-            currentPaths.AcousticModelPath = EditorGUILayout.TextField("Acoustic model path", currentPaths.AcousticModelPath.Equals(DefaultPaths.defaultAcousticModelPath) ? OnDefaultPathSet(ConfigDataType.AcousticModel) : currentPaths.AcousticModelPath);
+            windowData.AcousticModelPath = EditorGUILayout.TextField("Acoustic model path", windowData.AcousticModelPath.Equals(DefaultPaths.defaultAcousticModelPath) ? OnDefaultPathSet(ConfigDataType.AcousticModel) : windowData.AcousticModelPath);
             if (EditorGUI.EndChangeCheck() == true)
             {
-                dataManager.SaveWindowData(ConfigDataType.AcousticModel, currentPaths.AcousticModelPath);
+                dataManager.SaveWindowData(ConfigDataType.AcousticModel, windowData.AcousticModelPath);
             }
 
             EditorGUI.BeginChangeCheck();
-            currentPaths.DictionaryPath = EditorGUILayout.TextField("Dictionary path", currentPaths.DictionaryPath.Equals(DefaultPaths.defaultDictionaryPath) ? OnDefaultPathSet(ConfigDataType.Dictionary) : currentPaths.DictionaryPath);
+            windowData.DictionaryPath = EditorGUILayout.TextField("Dictionary path", windowData.DictionaryPath.Equals(DefaultPaths.defaultDictionaryPath) ? OnDefaultPathSet(ConfigDataType.Dictionary) : windowData.DictionaryPath);
             if (EditorGUI.EndChangeCheck() == true)
             {
-                dataManager.SaveWindowData(ConfigDataType.Dictionary, currentPaths.DictionaryPath);
+                dataManager.SaveWindowData(ConfigDataType.Dictionary, windowData.DictionaryPath);
             }
 
             EditorGUI.BeginChangeCheck();
-            currentPaths.TempFolderPath = EditorGUILayout.TextField("Temp folder path", currentPaths.TempFolderPath.Equals(DefaultPaths.defaultTempFolderPath) ? OnDefaultPathSet(ConfigDataType.TempFolder) : currentPaths.TempFolderPath);
+            windowData.TempFolderPath = EditorGUILayout.TextField("Temp folder path", windowData.TempFolderPath.Equals(DefaultPaths.defaultTempFolderPath) ? OnDefaultPathSet(ConfigDataType.TempFolder) : windowData.TempFolderPath);
             if (EditorGUI.EndChangeCheck() == true)
             {
-                dataManager.SaveWindowData(ConfigDataType.TempFolder, currentPaths.TempFolderPath);
+                dataManager.SaveWindowData(ConfigDataType.TempFolder, windowData.TempFolderPath);
             }
+
+            EditorGUI.BeginChangeCheck();
+            float originalWidth = EditorGUIUtility.labelWidth;
+            EditorGUIUtility.labelWidth = 250;
+            windowData.DialogueToggle = EditorGUILayout.Toggle("Save dialogue data in audio file directory", windowData.DialogueToggle);
+            EditorGUIUtility.labelWidth = originalWidth;
+            if(EditorGUI.EndChangeCheck() == true)
+            {
+                dataManager.SaveWindowData(ConfigDataType.DialogueToggle, windowData.DialogueToggle);
+            }
+
+            EditorGUI.BeginDisabledGroup(windowData.DialogueToggle);
+            EditorGUI.BeginChangeCheck();
+            windowData.DialogueDataSavingPath = EditorGUILayout.TextField("Dialogue folder path", windowData.DialogueDataSavingPath.Equals(DefaultPaths.defaultDialogueSavingPath) ? OnDefaultPathSet(ConfigDataType.DialoguePath) : windowData.DialogueDataSavingPath);
+            if (EditorGUI.EndChangeCheck() == true)
+            {
+                dataManager.SaveWindowData(ConfigDataType.DialoguePath, windowData.DialogueDataSavingPath);
+            }
+            EditorGUI.EndDisabledGroup();
         }
 
         private string OnDefaultPathSet(ConfigDataType defaultValueSet)

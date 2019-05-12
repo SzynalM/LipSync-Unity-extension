@@ -1,32 +1,33 @@
 ﻿using PhonemeExtractor.SetupWindow;
-using System;
-using System.Collections;
 using System.Diagnostics;
 using UnityEngine;
-using VisemeExtractor;
+using UnityEditor;
+using System.Threading;
 
 namespace PhonemeExtractor
 {
-    //CMD Arguments: AcousticModel DictionaryPath WavFilePath TranscriptionString TempFolderPath
-    public class PhonemeExtractor_Main : MonoBehaviour //monobehaviour to be deleted when there's a button running the function
+    //CMD Arguments: AcousticModel DictionaryPath WavFilePath TranscriptionString TempFolderPath 
+    public class PhonemeExtractor_Main
     {
-        private event Action OnProcessStarted;
-        private event Action<string> OnProcessEnded;
-        private DataManager dataManager = new DataManager();
-        private VisemeExtractor_Main visemeExtractor = new VisemeExtractor_Main();
-        private CurrentPaths currentPaths;
+        //May be extracted to separate static class
+        public static AudioClip audioClip;
+        public static string textTranscripton = "";
+        public static string audioFilePath = "";
 
-        [ContextMenu("Extract phonemes")]
-        public void RunPhonemeExtrapolator() //arguments string audioFilePath, string transcription will be added later
+        private DataManager dataManager = new DataManager();
+        private WindowData currentPaths;
+
+        public void RunPhonemeExtractor(AudioClip audioFile, string transcription)
         {
-            Initialize();
-            StartCoroutine(RunProcess(@"D:/Projects/LipSync/LipSync/Assets/Test/AudioFiles/test.wav", "One, zero, zero, one.")); //arguments are to be passed through the upper method
+            audioClip = audioFile;
+            textTranscripton = transcription;
+            audioFilePath = AssetDatabase.GetAssetPath(audioFile);
+            currentPaths = dataManager.LoadWindowData();
+            RunJavaProcess();            
         }
 
-        private IEnumerator RunProcess(string audioFilePath, string transcription)
+        void RunJavaProcess()
         {
-            currentPaths = dataManager.LoadWindowData();
-
             Process javaPhonemeExtractor = new Process();
             javaPhonemeExtractor.EnableRaisingEvents = true;
             javaPhonemeExtractor.StartInfo = new ProcessStartInfo()
@@ -40,24 +41,10 @@ namespace PhonemeExtractor
                     + currentPaths.AcousticModelPath + " "
                     + currentPaths.DictionaryPath + " "
                     + audioFilePath + " "
-                    + "\"" + transcription + "\" "
+                    + "\"" + textTranscripton + "\" "
                     + currentPaths.TempFolderPath
             };
-            OnProcessStarted?.Invoke();
             javaPhonemeExtractor.Start();
-            yield return new WaitUntil(() => javaPhonemeExtractor.HasExited == true);
-            OnProcessEnded?.Invoke(currentPaths.TempFolderPath);
-            Terminate();
-        }
-
-        private void Initialize()
-        {
-            OnProcessEnded += visemeExtractor.ExtractVisemes;
-        }
-
-        private void Terminate()
-        {
-            OnProcessEnded -= visemeExtractor.ExtractVisemes;
         }
     }
 }

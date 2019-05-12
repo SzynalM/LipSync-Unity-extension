@@ -5,6 +5,8 @@
         Plugin,
         AcousticModel,
         Dictionary,
-        TempFolder
+        TempFolder,
+        DialoguePath,
+        DialogueToggle
     }
 }

@@ -21,5 +21,9 @@ namespace PhonemeExtractor.SetupWindow
         {
             get => Path.Combine(Application.dataPath, "Plugins", "LipSync", "PhonemeExtractor", "Temp");
         }
+        public static string defaultDialogueSavingPath
+        {
+            get => Path.Combine("Assets", "Plugins", "LipSync", "Animation", "DefaultDialogueFolder");
+        }
     }
 }

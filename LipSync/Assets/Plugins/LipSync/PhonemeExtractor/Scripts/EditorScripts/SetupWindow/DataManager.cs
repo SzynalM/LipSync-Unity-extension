@@ -7,19 +7,23 @@ namespace PhonemeExtractor.SetupWindow
 {
     public class DataManager
     {
-        public CurrentPaths LoadWindowData()
+        public WindowData LoadWindowData() //change return type to window data (currrent paths + toggle bool)
         {
             string pluginPath = "";
             string acousticModelPath = "";
             string dictionaryPath = "";
             string tempFolderPath = "";
-            CurrentPaths paths;
+            string dialoguePath = "";
+            bool dialogueToggle = true;
+            WindowData data;
             try
             {
                 pluginPath = EditorPrefs.GetString(CustomEditorPrefs.pluginPath);
                 acousticModelPath = EditorPrefs.GetString(CustomEditorPrefs.acousticModelPath);
                 dictionaryPath = EditorPrefs.GetString(CustomEditorPrefs.dictionaryPath);
                 tempFolderPath = EditorPrefs.GetString(CustomEditorPrefs.tempFolderPath);
+                dialoguePath = EditorPrefs.GetString(CustomEditorPrefs.dialogueSavingPath);
+                dialogueToggle = EditorPrefs.GetBool(CustomEditorPrefs.dialogueToggle);
             }
             catch (Exception e)
             {
@@ -27,13 +31,23 @@ namespace PhonemeExtractor.SetupWindow
             }
             finally
             {
-                paths = new CurrentPaths(
+                data = new WindowData(
                     string.IsNullOrEmpty(pluginPath) ? DefaultPaths.defaultPluginPath : pluginPath,
                     string.IsNullOrEmpty(acousticModelPath) ? DefaultPaths.defaultAcousticModelPath : acousticModelPath,
                     string.IsNullOrEmpty(dictionaryPath) ? DefaultPaths.defaultDictionaryPath : dictionaryPath,
-                    string.IsNullOrEmpty(tempFolderPath) ? DefaultPaths.defaultTempFolderPath : tempFolderPath);
+                    string.IsNullOrEmpty(tempFolderPath) ? DefaultPaths.defaultTempFolderPath : tempFolderPath,
+                    string.IsNullOrEmpty(dialoguePath) ? DefaultPaths.defaultDialogueSavingPath : dialoguePath,
+                    dialogueToggle);
             }
-            return paths;
+            return data;
+        }
+
+        public void SaveWindowData(ConfigDataType dataToSave, bool toggleValue)
+        {
+            if (dataToSave == ConfigDataType.DialogueToggle)
+            {
+                EditorPrefs.SetBool(CustomEditorPrefs.dialogueToggle, toggleValue);
+            }
         }
 
         public void SaveWindowData(ConfigDataType dataToSave, string path)
@@ -53,7 +67,10 @@ namespace PhonemeExtractor.SetupWindow
             else if (dataToSave == ConfigDataType.TempFolder)
             {
                 EditorPrefs.SetString(CustomEditorPrefs.tempFolderPath, path);
-            }
+            } else if (dataToSave == ConfigDataType.DialoguePath)
+            {
+                EditorPrefs.SetString(CustomEditorPrefs.dialogueSavingPath, path);
+            } 
         }
     }
 }

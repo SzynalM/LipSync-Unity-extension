@@ -1,0 +1,198 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32744 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:211), pid=4524, tid=12024
+#
+# JRE version: Java(TM) SE Runtime Environment (7.0_80-b15) (build 1.7.0_80-b15)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (24.80-b11 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000000b143000):  JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=12024, stack(0x000000000c6c0000,0x000000000c7c0000)]
+
+Stack: [0x000000000c6c0000,0x000000000c7c0000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+
+[error occurred during error reporting (printing native stack), id 0xc0000005]
+
+
+Current CompileTask:
+C2:  23000   93 %           edu.cmu.sphinx.linguist.acoustic.tiedstate.Sphinx3Loader::loadMixtureWeights @ 295 (371 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000000000b159000 JavaThread "Service Thread" daemon [_thread_blocked, id=14692, stack(0x000000000c8c0000,0x000000000c9c0000)]
+  0x000000000b145000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=564, stack(0x000000000c7c0000,0x000000000c8c0000)]
+=>0x000000000b143000 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=12024, stack(0x000000000c6c0000,0x000000000c7c0000)]
+  0x000000000b142000 JavaThread "Attach Listener" daemon [_thread_blocked, id=4140, stack(0x000000000c5c0000,0x000000000c6c0000)]
+  0x000000000b13f000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=5432, stack(0x000000000c4c0000,0x000000000c5c0000)]
+  0x000000000b108800 JavaThread "Finalizer" daemon [_thread_blocked, id=1896, stack(0x000000000c3c0000,0x000000000c4c0000)]
+  0x000000000b103800 JavaThread "Reference Handler" daemon [_thread_blocked, id=2412, stack(0x000000000c2c0000,0x000000000c3c0000)]
+  0x0000000002e50800 JavaThread "main" [_thread_in_vm, id=14704, stack(0x0000000002b80000,0x0000000002c80000)]
+
+Other Threads:
+  0x000000000b100000 VMThread [stack: 0x000000000c1c0000,0x000000000c2c0000] [id=15628]
+  0x000000000b162000 WatcherThread [stack: 0x000000000c9c0000,0x000000000cac0000] [id=12220]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 37888K, used 27432K [0x00000007d6000000, 0x00000007d8a00000, 0x0000000800000000)
+  eden space 32768K, 83% used [0x00000007d6000000,0x00000007d7aca108,0x00000007d8000000)
+  from space 5120K, 0% used [0x00000007d8500000,0x00000007d8500000,0x00000007d8a00000)
+  to   space 5120K, 0% used [0x00000007d8000000,0x00000007d8000000,0x00000007d8500000)
+ ParOldGen       total 86016K, used 0K [0x0000000782000000, 0x0000000787400000, 0x00000007d6000000)
+  object space 86016K, 0% used [0x0000000782000000,0x0000000782000000,0x0000000787400000)
+ PSPermGen       total 21504K, used 6811K [0x000000077ce00000, 0x000000077e300000, 0x0000000782000000)
+  object space 21504K, 31% used [0x000000077ce00000,0x000000077d4a6d38,0x000000077e300000)
+
+Card table byte_map: [0x0000000005f50000,0x0000000006370000] byte_map_base: 0x0000000002369000
+
+Polling page: 0x0000000000e70000
+
+Code Cache  [0x0000000002f50000, 0x00000000031c0000, 0x0000000005f50000)
+ total_blobs=377 nmethods=92 adapters=237 free_code_cache=48564Kb largest_free_block=49712320
+
+Compilation events (10 events):
+Event: 20.981 Thread 0x000000000b145000 nmethod 88% 0x0000000002fe5250 code [0x0000000002fe5420, 0x0000000002fe6520]
+Event: 21.141 Thread 0x000000000b143000   89             java.io.Win32FileSystem::normalize (143 bytes)
+Event: 21.149 Thread 0x000000000b143000 nmethod 89 0x0000000002fe0e50 code [0x0000000002fe0fa0, 0x0000000002fe1328]
+Event: 21.151 Thread 0x000000000b145000   90             edu.cmu.sphinx.util.Utilities::normalize (62 bytes)
+Event: 21.153 Thread 0x000000000b143000   91             edu.cmu.sphinx.util.LogMath::linearToLog (28 bytes)
+Event: 21.156 Thread 0x000000000b145000 nmethod 90 0x0000000002fe01d0 code [0x0000000002fe0320, 0x0000000002fe04b8]
+Event: 21.156 Thread 0x000000000b145000   92             edu.cmu.sphinx.linguist.acoustic.tiedstate.GaussianWeights::put (62 bytes)
+Event: 21.156 Thread 0x000000000b143000 nmethod 91 0x0000000002fde4d0 code [0x0000000002fde600, 0x0000000002fde8d8]
+Event: 21.160 Thread 0x000000000b145000 nmethod 92 0x0000000002fdfd50 code [0x0000000002fdfe80, 0x0000000002fe00b8]
+Event: 22.637 Thread 0x000000000b143000   93 %           edu.cmu.sphinx.linguist.acoustic.tiedstate.Sphinx3Loader::loadMixtureWeights @ 295 (371 bytes)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (10 events):
+Event: 19.190 Thread 0x0000000002e50800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000002fbd0f8 method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 19.669 Thread 0x0000000002e50800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000002fbd0f8 method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 19.828 Thread 0x0000000002e50800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000002fbd0f8 method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 19.828 Thread 0x0000000002e50800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000002fbd0f8 method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 20.690 Thread 0x0000000002e50800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002fdc3e0 method=edu.cmu.sphinx.util.LogMath.<init>()V @ 121
+Event: 20.710 Thread 0x0000000002e50800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002fccbf8 method=java.lang.CharacterDataLatin1.isWhitespace(I)Z @ 14
+Event: 20.710 Thread 0x0000000002e50800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002fd06bc method=java.lang.CharacterDataLatin1.isWhitespace(I)Z @ 14
+Event: 20.710 Thread 0x0000000002e50800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002fcc8fc method=java.lang.CharacterDataLatin1.isWhitespace(I)Z @ 14
+Event: 20.941 Thread 0x0000000002e50800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002fd7290 method=edu.cmu.sphinx.util.Utilities.floorData([FF)V @ 13
+Event: 20.959 Thread 0x0000000002e50800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002fe3c38 method=edu.cmu.sphinx.util.Utilities.floorData([FF)V @ 13
+
+Internal exceptions (10 events):
+Event: 0.871 Thread 0x0000000002e50800 Threw 0x00000007d6052878 at C:\re\jdk7u80\2329\hotspot\src\share\vm\prims\jvm.cpp:1319
+Event: 0.946 Thread 0x0000000002e50800 Threw 0x00000007d6074cb8 at C:\re\jdk7u80\2329\hotspot\src\share\vm\prims\jvm.cpp:1319
+Event: 0.946 Thread 0x0000000002e50800 Threw 0x00000007d6074de0 at C:\re\jdk7u80\2329\hotspot\src\share\vm\prims\jvm.cpp:1319
+Event: 0.948 Thread 0x0000000002e50800 Threw 0x00000007d6078318 at C:\re\jdk7u80\2329\hotspot\src\share\vm\prims\jvm.cpp:1319
+Event: 0.948 Thread 0x0000000002e50800 Threw 0x00000007d6078440 at C:\re\jdk7u80\2329\hotspot\src\share\vm\prims\jvm.cpp:1319
+Event: 0.951 Thread 0x0000000002e50800 Threw 0x00000007d607b9f8 at C:\re\jdk7u80\2329\hotspot\src\share\vm\prims\jvm.cpp:1319
+Event: 0.953 Thread 0x0000000002e50800 Threw 0x00000007d6081300 at C:\re\jdk7u80\2329\hotspot\src\share\vm\prims\jvm.cpp:1319
+Event: 0.954 Thread 0x0000000002e50800 Threw 0x00000007d6084398 at C:\re\jdk7u80\2329\hotspot\src\share\vm\prims\jvm.cpp:1319
+Event: 0.955 Thread 0x0000000002e50800 Threw 0x00000007d6087cb8 at C:\re\jdk7u80\2329\hotspot\src\share\vm\prims\jvm.cpp:1319
+Event: 18.401 Thread 0x0000000002e50800 Implicit null exception at 0x0000000002fb7694 to 0x0000000002fb7719
+
+Events (10 events):
+Event: 20.711 loading class 0x000000000cdb72a0
+Event: 20.711 loading class 0x000000000cdb72a0 done
+Event: 20.941 Thread 0x0000000002e50800 Uncommon trap: trap_request=0xffffff75 fr.pc=0x0000000002fd7290
+Event: 20.941 Thread 0x0000000002e50800 DEOPT PACKING pc=0x0000000002fd7290 sp=0x0000000002c7e000
+Event: 20.941 Thread 0x0000000002e50800 DEOPT UNPACKING pc=0x0000000002f875a4 sp=0x0000000002c7dfa0 mode 2
+Event: 20.959 Thread 0x0000000002e50800 Uncommon trap: trap_request=0xffffff75 fr.pc=0x0000000002fe3c38
+Event: 20.959 Thread 0x0000000002e50800 DEOPT PACKING pc=0x0000000002fe3c38 sp=0x0000000002c7e050
+Event: 20.959 Thread 0x0000000002e50800 DEOPT UNPACKING pc=0x0000000002f875a4 sp=0x0000000002c7dfa0 mode 2
+Event: 21.141 loading class 0x000000000cdb7520
+Event: 21.141 loading class 0x000000000cdb7520 done
+
+
+Dynamic libraries:
+0x00007ff6215c0000 - 0x00007ff6215f3000 	C:\Windows\System32\java.exe
+0x00007ffaa89b0000 - 0x00007ffaa8b9d000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffaa61c0000 - 0x00007ffaa6273000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffaa4a80000 - 0x00007ffaa4d13000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffaa6f00000 - 0x00007ffaa6fa3000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffaa6330000 - 0x00007ffaa63ce000 	C:\Windows\System32\msvcrt.dll
+0x00007ffaa7000000 - 0x00007ffaa709e000 	C:\Windows\System32\sechost.dll
+0x00007ffaa8850000 - 0x00007ffaa8972000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffaa6a60000 - 0x00007ffaa6bf7000 	C:\Windows\System32\USER32.dll
+0x00007ffaa4dd0000 - 0x00007ffaa4df0000 	C:\Windows\System32\win32u.dll
+0x00007ffaa70a0000 - 0x00007ffaa70c9000 	C:\Windows\System32\GDI32.dll
+0x00007ffaa59e0000 - 0x00007ffaa5b7a000 	C:\Windows\System32\gdi32full.dll
+0x00007ffaa5630000 - 0x00007ffaa56d0000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffaa5700000 - 0x00007ffaa57fa000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffa948c0000 - 0x00007ffa94b39000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.17763.475_none_05b43ca607202c6c\COMCTL32.dll
+0x00007ffaa6500000 - 0x00007ffaa682c000 	C:\Windows\System32\combase.dll
+0x00007ffaa4e10000 - 0x00007ffaa4e8e000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffaa6fd0000 - 0x00007ffaa6ffe000 	C:\Windows\System32\IMM32.DLL
+0x0000000068df0000 - 0x0000000068ec2000 	C:\Program Files\Java\jre7\bin\msvcr100.dll
+0x0000000068610000 - 0x0000000068de9000 	C:\Program Files\Java\jre7\bin\server\jvm.dll
+0x00007ffaa8630000 - 0x00007ffaa8638000 	C:\Windows\System32\PSAPI.DLL
+0x00007ffaa3580000 - 0x00007ffaa3589000 	C:\Windows\System32\WSOCK32.dll
+0x00007ffaa6d70000 - 0x00007ffaa6ddd000 	C:\Windows\System32\WS2_32.dll
+0x00007ffa9b440000 - 0x00007ffa9b464000 	C:\Windows\System32\WINMM.dll
+0x00007ffa9b410000 - 0x00007ffa9b43d000 	C:\Windows\System32\WINMMBASE.dll
+0x00007ffaa4e90000 - 0x00007ffaa4eda000 	C:\Windows\System32\cfgmgr32.dll
+0x0000000068600000 - 0x000000006860f000 	C:\Program Files\Java\jre7\bin\verify.dll
+0x00000000685d0000 - 0x00000000685f8000 	C:\Program Files\Java\jre7\bin\java.dll
+0x00000000685b0000 - 0x00000000685c6000 	C:\Program Files\Java\jre7\bin\zip.dll
+0x0000000068590000 - 0x00000000685aa000 	C:\Program Files\Java\jre7\bin\net.dll
+0x00007ffaa4230000 - 0x00007ffaa4297000 	C:\Windows\system32\mswsock.dll
+0x00007ffaa4df0000 - 0x00007ffaa4e07000 	C:\Windows\System32\CRYPTSP.dll
+0x00007ffaa3df0000 - 0x00007ffaa3e23000 	C:\Windows\system32\rsaenh.dll
+0x00007ffaa56d0000 - 0x00007ffaa56f6000 	C:\Windows\System32\bcrypt.dll
+0x00007ffaa48b0000 - 0x00007ffaa48d8000 	C:\Windows\System32\USERENV.dll
+0x00007ffaa4a50000 - 0x00007ffaa4a74000 	C:\Windows\System32\profapi.dll
+0x00007ffaa4400000 - 0x00007ffaa440c000 	C:\Windows\System32\CRYPTBASE.dll
+0x00007ffaa3f90000 - 0x00007ffaa3fcd000 	C:\Windows\System32\IPHLPAPI.DLL
+0x00007ffaa8620000 - 0x00007ffaa8628000 	C:\Windows\System32\NSI.dll
+0x00007ffa9d3b0000 - 0x00007ffa9d3c6000 	C:\Windows\SYSTEM32\dhcpcsvc6.DLL
+0x00007ffa9d2b0000 - 0x00007ffa9d2cc000 	C:\Windows\SYSTEM32\dhcpcsvc.DLL
+0x00007ffaa3fd0000 - 0x00007ffaa4096000 	C:\Windows\SYSTEM32\DNSAPI.dll
+0x0000000068570000 - 0x0000000068581000 	C:\Program Files\Java\jre7\bin\nio.dll
+
+VM Arguments:
+java_command: D:/Projects/LipSync/LipSync/Assets\Plugins\LipSync\PhonemeExtractor\PhonemeExtractor.jar D:/Projects/LipSync/LipSync/Assets\Plugins\LipSync\PhonemeExtractor\RecognizerData\AcousticModel D:/Projects/LipSync/LipSync/Assets\Plugins\LipSync\PhonemeExtractor\RecognizerData\cmudict-en-us.dict Assets/Plugins/LipSync/Example/AudioFiles/Example_OneZeroZeroOne.wav One, zero, zero, one. D:/Projects/LipSync/LipSync/Assets\Plugins\LipSync\PhonemeExtractor\Temp
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;D:\Programs\SVN\bin;C:\Users\szync\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Java\jdk1.7.0_80\bin\javac.exe;D:\Programs\Adb\platform-tools;D:\Programs\SVN\bin;D:\Programs\Maven\apache-maven-3.6.1\bin;D:\Programs\Gradle\gradle-2.8\bin;
+USERNAME=szync
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 78 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 8.1 , 64 bit Build 9600 
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 78 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, erms, ht, tsc, tscinvbit
+
+Memory: 4k page, physical 8249472k(908916k free), swap 18410748k(443532k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (24.80-b11) for windows-amd64 JRE (1.7.0_80-b15), built on Apr 10 2015 11:26:34 by "java_re" with unknown MS VC++:1600
+
+time: Sat May 11 17:07:08 2019
+elapsed time: 23 seconds
+

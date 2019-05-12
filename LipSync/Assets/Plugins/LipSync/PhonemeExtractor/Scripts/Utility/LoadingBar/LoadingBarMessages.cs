@@ -1,4 +1,4 @@
-﻿namespace VisemeExtractor
+﻿namespace DataCleaning
 {
     public class LoadingBarMessages
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace VisemeExtractor
+namespace DataCleaning
 {
     public class LoadingBarViewer : EditorWindow
     {
