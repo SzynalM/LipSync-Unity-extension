@@ -39,7 +39,7 @@ public class LipSyncAnimator : MonoBehaviour
     {
         skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
         sharedMesh = skinnedMeshRenderer.sharedMesh;
-        AssignNewDialogueData(dialogueData);
+        dialogueAudio = dialogueData.dialogueAudio;
     }
 
     private void Update()
@@ -49,7 +49,8 @@ public class LipSyncAnimator : MonoBehaviour
 
     public void AssignNewDialogueData(VisemeScriptableObject data)
     {
-        dialogueAudio = data.dialogueAudio;
+        dialogueData = data;
+        PlayLipSyncAnimation();
     }
 
     [BurstCompile]
