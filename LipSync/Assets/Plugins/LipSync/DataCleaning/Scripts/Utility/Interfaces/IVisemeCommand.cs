@@ -2,7 +2,7 @@
 
 namespace VisemeExtraction
 {
-    interface IVisemeCommand
+    public interface IVisemeCommand
     {
         void ShowViseme(SkinnedMeshRenderer skinnedMeshRenderer);
     }

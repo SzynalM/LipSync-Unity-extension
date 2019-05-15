@@ -3,25 +3,25 @@
 namespace VisemeExtraction
 {
     [System.Serializable]
-    public class Viseme : IVisemeCommand
+    public class Viseme : ScriptableObject
     {
         public int StartTime;
         public int EndTime;
 
-        protected float intensity;
-        protected float pronunciationSpeed;
+        public float intensity;
+        public float pronunciationSpeed;
 
-        protected Viseme(params Viseme[] _visemes) { }
-
-        protected Viseme(float _intensity, float _pronunciationSpeed) //internal
+        public Viseme Init(float _intensity, float _pronunciationSpeed)
         {
             intensity = _intensity;
             pronunciationSpeed = _pronunciationSpeed;
+            return this;
         }
 
-        public virtual void ShowViseme(SkinnedMeshRenderer skinnedMeshRenderer)
+        public virtual void ShowViseme(SkinnedMeshRenderer skinnedMeshRenderer, Viseme viseme)
         {
-            skinnedMeshRenderer.SetBlendShapeWeight(BlendShapeInfo.GetBlendShape(this), intensity);
+            skinnedMeshRenderer.SetBlendShapeWeight(BlendShapeInfo.GetBlendShapeIndex(this), intensity);
+            Debug.LogWarning("Viseme index: " + BlendShapeInfo.GetBlendShapeIndex(this));
         }
     }
 }

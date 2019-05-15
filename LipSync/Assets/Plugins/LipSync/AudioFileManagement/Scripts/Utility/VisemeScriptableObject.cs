@@ -7,5 +7,5 @@ public class VisemeScriptableObject : ScriptableObject
 {
     public string dialogueTranscription;
     public AudioClip dialogueAudio;
-    public List<Viseme> generatedVisemes;
+    public List<ScriptableObject> generatedVisemes;
 }

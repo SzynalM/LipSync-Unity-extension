@@ -1,29 +1,36 @@
 ﻿using DataCleaning;
+using PhonemeExtractor;
 using PhonemeExtractor.SetupWindow;
 using System;
 using System.Collections.Generic;
-using System.Threading;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 using VisemeExtraction;
-using PhonemeExtractor;
-using System.IO;
 
 public class LipSyncCreator
 {
     private VisemeExtractor visemeExtractor = new VisemeExtractor();
+    private SilenceDetector silenceDetector = new SilenceDetector();
     private DataManager dataManager = new DataManager();
     private DataCleaner dataCleaner = new DataCleaner();
 
-    private List<Viseme> visemes;
+    private List<ScriptableObject> visemes;
+    private string phonemeFilePath;
 
-    public void CreateLipsyncData(string phonemeFilePath)
+    public void CreateLipsyncData(string _phonemeFilePath)
     {
-        visemes = visemeExtractor.ExtractVisemes(dataCleaner.CleanRawPhonemeData(phonemeFilePath));
+        phonemeFilePath = _phonemeFilePath;
+        Dispatcher.Dispatch(AssignVisemeData);
         Dispatcher.Dispatch(CreateAsset);
     }
 
-    public void CreateAsset()
+    private void AssignVisemeData()
+    {
+        visemes = silenceDetector.DetectSilence(visemeExtractor.ExtractVisemes(dataCleaner.CleanRawPhonemeData(phonemeFilePath)));
+    }
+
+    private void CreateAsset()
     {
         try
         {
@@ -42,15 +49,18 @@ public class LipSyncCreator
             newScriptableObject.generatedVisemes = visemes;
             AssetDatabase.CreateAsset(newScriptableObject, scriptableObjectPath);
             AssetDatabase.SaveAssets();
+            for (int i = 0; i < visemes.Count; i++)
+            {
+                visemes[i].name = visemes[i].GetType().ToString().Split('.')[1];
+                //visemes[i].hideFlags = HideFlags.HideInHierarchy;
+                AssetDatabase.AddObjectToAsset(visemes[i], scriptableObjectPath);
+            }
+            AssetDatabase.SaveAssets();
+
         }
         catch (Exception e)
         {
             Debug.Log("Failed to create ScriptableObject\n" + e);
         }
     }
-}
-
-public class ScriptableObjectCreator : ScriptableObject
-{
-
 }

@@ -2,7 +2,7 @@
 {
     public class BlendShapeInfo
     {
-        public static int GetBlendShape(Viseme viseme)
+        public static int GetBlendShapeIndex(Viseme viseme)
         {
             if (viseme is Viseme_OO)
             {
@@ -35,6 +35,10 @@
             else if (viseme is Viseme_AA)
             {
                 return 7;
+            }
+            else if (viseme is Viseme_Silence)
+            {
+                return 8;
             }
             else return 0;
         }

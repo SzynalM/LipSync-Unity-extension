@@ -3,19 +3,21 @@
 namespace VisemeExtraction
 {
     [System.Serializable]
-    public class Viseme_Mixed : Viseme, IVisemeCommand
+    public class Viseme_Mixed : Viseme
     {
         private Viseme[] visemes;
-        public Viseme_Mixed(params Viseme[] _visemes)
+
+        public Viseme_Mixed Init(params Viseme[] _visemes)
         {
             visemes = _visemes;
+            return this;
         }
 
-        public override void ShowViseme(SkinnedMeshRenderer skinnedMeshRenderer)
+        public override void ShowViseme(SkinnedMeshRenderer skinnedMeshRenderer, Viseme viseme)
         {
-            foreach(Viseme viseme in visemes)
+            foreach(Viseme _viseme in visemes)
             {
-                skinnedMeshRenderer.SetBlendShapeWeight(BlendShapeInfo.GetBlendShape(viseme), intensity);
+                skinnedMeshRenderer.SetBlendShapeWeight(BlendShapeInfo.GetBlendShapeIndex(_viseme), intensity);
             }
         }
     }

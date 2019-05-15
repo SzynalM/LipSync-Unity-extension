@@ -3,13 +3,11 @@
 namespace VisemeExtraction
 {
     [System.Serializable]
-    public class Viseme_R : Viseme, IVisemeCommand
+    public class Viseme_R : Viseme
     {
-        public Viseme_R(float _intensity, float _pronunciationSpeed) : base(_intensity, _pronunciationSpeed) { }
-
-        public override void ShowViseme(SkinnedMeshRenderer skinnedMeshRenderer)
+        public override void ShowViseme(SkinnedMeshRenderer skinnedMeshRenderer, Viseme viseme)
         {
-            base.ShowViseme(skinnedMeshRenderer);
+            base.ShowViseme(skinnedMeshRenderer, this);
         }
     }
 }
