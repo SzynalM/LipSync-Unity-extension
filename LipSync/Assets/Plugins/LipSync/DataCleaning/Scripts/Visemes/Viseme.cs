@@ -21,7 +21,6 @@ namespace VisemeExtraction
         public virtual void ShowViseme(SkinnedMeshRenderer skinnedMeshRenderer, Viseme viseme)
         {
             skinnedMeshRenderer.SetBlendShapeWeight(BlendShapeInfo.GetBlendShapeIndex(this), intensity);
-            Debug.LogWarning("Viseme index: " + BlendShapeInfo.GetBlendShapeIndex(this));
         }
     }
 }

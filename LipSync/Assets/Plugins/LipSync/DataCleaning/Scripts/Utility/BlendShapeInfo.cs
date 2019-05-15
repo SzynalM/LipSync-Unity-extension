@@ -36,7 +36,7 @@
             {
                 return 7;
             }
-            else if (viseme is Viseme_Silence)
+            else if (viseme is Viseme_UU)
             {
                 return 8;
             }

@@ -3,6 +3,7 @@ using UnityEditor;
 #endif
 using PhonemeExtractor.SetupWindow;
 
+
 public class EditorPrefsCleaner 
 {
 #if UNITY_EDITOR
@@ -13,7 +14,7 @@ public class EditorPrefsCleaner
         foreach(string pref in CustomEditorPrefs.GetCustomEditorPrefsNames())
         {
             EditorPrefs.DeleteKey(pref);
-        }
+        } 
     }
 #endif
 }

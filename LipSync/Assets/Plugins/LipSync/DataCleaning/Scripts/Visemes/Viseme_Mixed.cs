@@ -5,7 +5,7 @@ namespace VisemeExtraction
     [System.Serializable]
     public class Viseme_Mixed : Viseme
     {
-        private Viseme[] visemes;
+        public Viseme[] visemes;
 
         public Viseme_Mixed Init(params Viseme[] _visemes)
         {

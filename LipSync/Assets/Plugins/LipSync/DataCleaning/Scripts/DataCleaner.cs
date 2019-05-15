@@ -1,5 +1,4 @@
-﻿using LipsyncUtility;
-using UnityEngine;
+﻿using UnityEngine;
 using DataCleaning.Utility;
 
 namespace DataCleaning
@@ -13,13 +12,21 @@ namespace DataCleaning
 
         public string[] CleanRawPhonemeData(string phonemeFilePath)
         {
-            string[] rawPhonemeDataFromFile = phonemeFileLoader.LoadRawPhonemeData(phonemeFilePath);
+            try
+            {
+                string[] rawPhonemeDataFromFile = phonemeFileLoader.LoadRawPhonemeData(phonemeFilePath);
 
-            return
-                insignificantPhonemeRemover.ExctractSignificantPhonemes(
-                    diphthongSimplifier.SimplifyDiphthongs(
-                        wordRemover.RemoveWordsAtBeginningsOfLines(
-                            rawPhonemeDataFromFile)));
+                return
+                    insignificantPhonemeRemover.ExctractSignificantPhonemes(
+                        diphthongSimplifier.SimplifyDiphthongs(
+                            wordRemover.RemoveWordsAtBeginningsOfLines(
+                                rawPhonemeDataFromFile)));
+            }
+            catch(System.Exception e)
+            {
+                Debug.LogError("Data cleaning failed\n" + e);
+                return null;
+            }
         }
     }
 }

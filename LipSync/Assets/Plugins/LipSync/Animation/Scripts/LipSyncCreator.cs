@@ -53,13 +53,29 @@ public class LipSyncCreator
             {
                 visemes[i].name = visemes[i].GetType().ToString().Split('.')[1];
                 //visemes[i].hideFlags = HideFlags.HideInHierarchy;
-                AssetDatabase.AddObjectToAsset(visemes[i], scriptableObjectPath);
+                if (visemes[i] is Viseme_Mixed)
+                {
+                    AssetDatabase.AddObjectToAsset(visemes[i], scriptableObjectPath);
+                    for (int j = 0; j < (visemes[i] as Viseme_Mixed).visemes.Length; j++)
+                    {
+                        (visemes[i] as Viseme_Mixed).visemes[j].name = (visemes[i] as Viseme_Mixed).visemes[j].GetType().ToString().Split('.')[1];
+                        AssetDatabase.AddObjectToAsset((visemes[i] as Viseme_Mixed).visemes[j], scriptableObjectPath);
+                    }
+                }
+                else
+                {
+                    AssetDatabase.AddObjectToAsset(visemes[i], scriptableObjectPath);
+                }
             }
             AssetDatabase.SaveAssets();
 
         }
         catch (Exception e)
         {
+            for (int i = 0; i < visemes.Count; i++)
+            {
+                Debug.LogError(visemes[i].name);
+            }
             Debug.Log("Failed to create ScriptableObject\n" + e);
         }
     }
