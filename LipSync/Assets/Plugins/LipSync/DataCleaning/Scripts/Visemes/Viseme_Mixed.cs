@@ -6,6 +6,7 @@ namespace VisemeExtraction
     public class Viseme_Mixed : Viseme
     {
         public Viseme[] visemes;
+        private int currentVisemeBlendShapeIndex;
 
         public Viseme_Mixed Init(params Viseme[] _visemes)
         {
@@ -13,11 +14,15 @@ namespace VisemeExtraction
             return this;
         }
 
-        public override void ShowViseme(SkinnedMeshRenderer skinnedMeshRenderer, Viseme viseme)
+        public override void ShowViseme(SkinnedMeshRenderer skinnedMeshRenderer, int incrementationSpeed, int overallIntensity)
         {
-            foreach(Viseme _viseme in visemes)
+            for (int i = 0; i < visemes.Length; i++)
             {
-                skinnedMeshRenderer.SetBlendShapeWeight(BlendShapeInfo.GetBlendShapeIndex(_viseme), intensity);
+                currentVisemeBlendShapeIndex = BlendShapeInfo.GetBlendShapeIndex(visemes[i]);
+                if (skinnedMeshRenderer.GetBlendShapeWeight(currentVisemeBlendShapeIndex) + (Time.deltaTime * incrementationSpeed * visemes[i].pronunciationSpeed) <= overallIntensity * visemes[i].intensity)
+                {
+                    skinnedMeshRenderer.SetBlendShapeWeight(currentVisemeBlendShapeIndex, skinnedMeshRenderer.GetBlendShapeWeight(currentVisemeBlendShapeIndex) + (Time.deltaTime * incrementationSpeed * visemes[i].pronunciationSpeed));
+                }
             }
         }
     }

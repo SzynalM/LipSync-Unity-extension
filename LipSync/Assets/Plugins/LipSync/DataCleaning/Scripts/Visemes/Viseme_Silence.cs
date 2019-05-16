@@ -14,12 +14,9 @@ namespace VisemeExtraction
             return this;
         }
 
-        public override void ShowViseme(SkinnedMeshRenderer skinnedMeshRenderer, Viseme viseme)
+        public override void ShowViseme(SkinnedMeshRenderer skinnedMeshRenderer, int incrementationSpeed, int overallIntensity)
         {
-            for(int i = 0; i < skinnedMeshRenderer.sharedMesh.blendShapeCount; i++)
-            {
-                skinnedMeshRenderer.SetBlendShapeWeight(i, 0);
-            }
+            base.ShowViseme(skinnedMeshRenderer, incrementationSpeed, overallIntensity);
         }
     }
 

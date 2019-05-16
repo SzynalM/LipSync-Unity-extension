@@ -18,9 +18,15 @@ namespace VisemeExtraction
             return this;
         }
 
-        public virtual void ShowViseme(SkinnedMeshRenderer skinnedMeshRenderer, Viseme viseme)
+        private int currentBlendShapeIndex;
+
+        public virtual void ShowViseme(SkinnedMeshRenderer skinnedMeshRenderer, int incrementationSpeed, int overallIntensity)
         {
-            skinnedMeshRenderer.SetBlendShapeWeight(BlendShapeInfo.GetBlendShapeIndex(this), intensity);
+            currentBlendShapeIndex = BlendShapeInfo.GetBlendShapeIndex(this);
+            if (skinnedMeshRenderer.GetBlendShapeWeight(currentBlendShapeIndex) + (Time.deltaTime * incrementationSpeed * pronunciationSpeed) <= overallIntensity * intensity)
+            {
+                skinnedMeshRenderer.SetBlendShapeWeight(currentBlendShapeIndex, skinnedMeshRenderer.GetBlendShapeWeight(currentBlendShapeIndex) + (Time.deltaTime * incrementationSpeed * pronunciationSpeed));
+            }
         }
     }
 }

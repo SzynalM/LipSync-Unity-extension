@@ -2,6 +2,7 @@
 
 public class ShowDialogue : MonoBehaviour
 {
+#pragma warning disable CS0649
     [SerializeField]
     private LipSyncAnimator animator;
     [SerializeField]

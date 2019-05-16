@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Unity.Burst;
 using UnityEngine;
 using VisemeExtraction;
 
@@ -13,50 +12,46 @@ public class LipSyncAnimator : MonoBehaviour
     public event Action OnDialogueEnded;
 
     [SerializeField]
-    float reduction = 3;
+    private float speedMultiplier = 3;
     [SerializeField]
-    float reductionSpeed = 300;
-    float _reductionSpeed = 300;
-    float halvedReductionTime = 150;
-    float fasterReductionTime = 450;
+    private float reductionSpeed = 300;
     [SerializeField]
-    int incrementationSpeed = 500;
+    private int incrementationSpeed = 500;
     [SerializeField]
-    int overallIntensity = 100;
+    private int overallIntensity = 100;
 
-    [SerializeField] //for tests
+    [SerializeField]
     private VisemeScriptableObject dialogueData;
     [SerializeField]
     private ShowSubtitles subtitlesDisplayer;
-
+    [SerializeField]
+    private DialogueAudioPlayer dialogueAudioPlayer;
     [SerializeField]
     private AudioSource dialogueAudioSource;
 
-    private List<ScriptableObject> visemes;
     private SkinnedMeshRenderer skinnedMeshRenderer;
-    private Mesh sharedMesh;
+    private List<ScriptableObject> visemes;
     private AudioClip dialogueAudio;
     private Viseme currentViseme;
+    private Mesh sharedMesh;
+    private bool isDialoguePlaying;
     private int currentBlendShapeIndex;
     private int currentVisemeIndex;
-
-    private bool isDialoguePlaying;
+    private int currentVisemeStartTime;
+    private int currentVisemeEndTime;
+    private float _reductionSpeed;
+    private float halvedReductionTime;
+    private float fasterReductionTime;
 
     private void Awake()
     {
-        OnDialogueStarted += subtitlesDisplayer.DisplaySubtitles;
-        OnDialogueEnded += subtitlesDisplayer.HideSubtitles;
-
-        skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
-        sharedMesh = skinnedMeshRenderer.sharedMesh;
-        fasterReductionTime = reductionSpeed * 1.4f;
-        halvedReductionTime = reductionSpeed / reduction;
-        _reductionSpeed = reductionSpeed;
+        SubscribeEvents();
+        InitializeComponent();
     }
 
     private void Update()
     {
-        ShowVisemes();
+        CalculateVisemes();
     }
 
     public void PlayLipSyncAnimation(VisemeScriptableObject data)
@@ -65,27 +60,20 @@ public class LipSyncAnimator : MonoBehaviour
         PlayLipSyncAnimation();
     }
 
-    [BurstCompile]
     public void PlayLipSyncAnimation()
     {
-        dialogueAudio = dialogueData.dialogueAudio; //for tests
         visemes = dialogueData.generatedVisemes;
         currentVisemeIndex = 0;
-        currentViseme = visemes[currentVisemeIndex] as Viseme;
-        currentBlendShapeIndex = BlendShapeInfo.GetBlendShapeIndex(currentViseme);
-
-        dialogueAudioSource.clip = dialogueAudio;
-        dialogueAudioSource.Play();
+        AssignCurrentVisemeData();
 
         OnDialogueStarted?.Invoke(dialogueData);
     }
 
-    [BurstCompile]
-    private void ShowVisemes() //in update
+    private void CalculateVisemes()
     {
-        if (AreAllBlendShapesZeroed() == true && dialogueAudioSource.isPlaying == false)
+        if (HasDialogueFinished() == true)
         {
-            if(isDialoguePlaying == true)
+            if (isDialoguePlaying == true)
             {
                 isDialoguePlaying = false;
                 OnDialogueEnded?.Invoke();
@@ -101,53 +89,75 @@ public class LipSyncAnimator : MonoBehaviour
             }
             if (dialogueAudioSource.isPlaying)
             {
-                IncrementCurrentVisemeBlendShape(currentViseme);
+                IncrementCurrentVisemeBlendShape();
             }
         }
     }
 
-    private void IncrementCurrentVisemeBlendShape(Viseme _currentViseme)
+    private void IncrementCurrentVisemeBlendShape()
     {
-        if (_currentViseme.StartTime < dialogueAudioSource.time * 1000 && _currentViseme.EndTime > dialogueAudioSource.time * 1000) //currentVisemeBeingDisplayed
+        if (HasCurrentVisemeStarted() == true)
         {
-            if (_currentViseme is Viseme_Silence)
+            if (currentViseme is Viseme_Silence)
             {
                 _reductionSpeed = fasterReductionTime;
                 return;
             }
-            else if (_currentViseme is Viseme_Mixed)
-            {
-                _reductionSpeed = reductionSpeed;
-                for (int i = 0; i < (_currentViseme as Viseme_Mixed).visemes.Length; i++)
-                {
-                    if (skinnedMeshRenderer.GetBlendShapeWeight(BlendShapeInfo.GetBlendShapeIndex((_currentViseme as Viseme_Mixed).visemes[i])) + (Time.deltaTime * incrementationSpeed * (_currentViseme as Viseme_Mixed).visemes[i].pronunciationSpeed) <= overallIntensity * (_currentViseme as Viseme_Mixed).visemes[i].intensity)
-                    {
-                        skinnedMeshRenderer.SetBlendShapeWeight(BlendShapeInfo.GetBlendShapeIndex((_currentViseme as Viseme_Mixed).visemes[i]), skinnedMeshRenderer.GetBlendShapeWeight(BlendShapeInfo.GetBlendShapeIndex((_currentViseme as Viseme_Mixed).visemes[i])) + (Time.deltaTime * incrementationSpeed * (_currentViseme as Viseme_Mixed).visemes[i].pronunciationSpeed));
-                    }
-                }
-            }
             else
             {
                 _reductionSpeed = reductionSpeed;
-                if (skinnedMeshRenderer.GetBlendShapeWeight(currentBlendShapeIndex) + (Time.deltaTime * incrementationSpeed * _currentViseme.pronunciationSpeed) <= overallIntensity * _currentViseme.intensity)
-                {
-                    skinnedMeshRenderer.SetBlendShapeWeight(currentBlendShapeIndex, skinnedMeshRenderer.GetBlendShapeWeight(currentBlendShapeIndex) + (Time.deltaTime * incrementationSpeed * _currentViseme.pronunciationSpeed));
-                }
+                currentViseme.ShowViseme(skinnedMeshRenderer, incrementationSpeed, overallIntensity);
             }
         }
-        else if (dialogueAudioSource.time * 1000 > _currentViseme.EndTime) //this viseme has ended
+        else if (HasCurrentVisemeEnded() == true)
         {
             currentVisemeIndex++;
-            currentViseme = (Viseme)visemes[currentVisemeIndex];
-            currentBlendShapeIndex = BlendShapeInfo.GetBlendShapeIndex(currentViseme);
-            int currentVisemeStartTime = _currentViseme.StartTime;
-            int currentVisemeEndTime = _currentViseme.EndTime;
+            AssignCurrentVisemeData();
             _reductionSpeed = halvedReductionTime;
         }
-        else
+        else //Undetected silence
         {
             _reductionSpeed = halvedReductionTime;
         }
+    }
+
+    private void InitializeComponent()
+    {
+        skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
+        sharedMesh = skinnedMeshRenderer.sharedMesh;
+        fasterReductionTime = reductionSpeed * speedMultiplier;
+        halvedReductionTime = reductionSpeed / speedMultiplier;
+        _reductionSpeed = reductionSpeed;
+    }
+
+    private void SubscribeEvents()
+    {
+        OnDialogueStarted += subtitlesDisplayer.DisplaySubtitles;
+        OnDialogueEnded += subtitlesDisplayer.HideSubtitles;
+        OnDialogueStarted += dialogueAudioPlayer.PlayDialogueAudio;
+    }
+
+    private void AssignCurrentVisemeData()
+    {
+        currentViseme = (Viseme)visemes[currentVisemeIndex];
+        currentBlendShapeIndex = BlendShapeInfo.GetBlendShapeIndex(currentViseme);
+        currentVisemeStartTime = currentViseme.StartTime;
+        currentVisemeEndTime = currentViseme.EndTime;
+    }
+
+    private bool HasDialogueFinished()
+    {
+        return AreAllBlendShapesZeroed() == true && dialogueAudioSource.isPlaying == false;
+    }
+
+    private bool HasCurrentVisemeEnded()
+    {
+        return dialogueAudioSource.time * 1000 > currentViseme.EndTime;
+    }
+
+    private bool HasCurrentVisemeStarted()
+    {
+        return currentViseme.StartTime < dialogueAudioSource.time * 1000 && currentViseme.EndTime > dialogueAudioSource.time * 1000;
     }
 
     private bool AreAllBlendShapesZeroed()

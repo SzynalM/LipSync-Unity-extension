@@ -5,9 +5,9 @@ namespace VisemeExtraction
     [System.Serializable]
     public class Viseme_R : Viseme
     {
-        public override void ShowViseme(SkinnedMeshRenderer skinnedMeshRenderer, Viseme viseme)
+        public override void ShowViseme(SkinnedMeshRenderer skinnedMeshRenderer, int incrementationSpeed, int overallIntensity)
         {
-            base.ShowViseme(skinnedMeshRenderer, this);
+            base.ShowViseme(skinnedMeshRenderer, incrementationSpeed, overallIntensity);
         }
     }
 }
