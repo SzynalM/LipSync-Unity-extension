@@ -12,9 +12,9 @@ public class LipSyncAnimator : MonoBehaviour
     public event Action OnDialogueEnded;
 
     [SerializeField]
-    private float speedMultiplier = 3;
+    private float reductionSpeedMultiplier = 3;
     [SerializeField]
-    private float reductionSpeed = 300;
+    private float defaultReductionSpeed = 300;
     [SerializeField]
     private int incrementationSpeed = 500;
     [SerializeField]
@@ -105,7 +105,7 @@ public class LipSyncAnimator : MonoBehaviour
             }
             else
             {
-                _reductionSpeed = reductionSpeed;
+                _reductionSpeed = defaultReductionSpeed;
                 currentViseme.ShowViseme(skinnedMeshRenderer, incrementationSpeed, overallIntensity);
             }
         }
@@ -125,9 +125,9 @@ public class LipSyncAnimator : MonoBehaviour
     {
         skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
         sharedMesh = skinnedMeshRenderer.sharedMesh;
-        fasterReductionTime = reductionSpeed * speedMultiplier;
-        halvedReductionTime = reductionSpeed / speedMultiplier;
-        _reductionSpeed = reductionSpeed;
+        fasterReductionTime = defaultReductionSpeed * reductionSpeedMultiplier;
+        halvedReductionTime = defaultReductionSpeed / reductionSpeedMultiplier;
+        _reductionSpeed = defaultReductionSpeed;
     }
 
     private void SubscribeEvents()

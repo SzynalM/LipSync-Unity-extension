@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEditor;
 using UnityEngine;
-using UnityEditor;
 
 [CustomEditor(typeof(LipSyncAnimator))]
 public class LipSyncAnimatorCustomEditor : Editor
@@ -13,9 +11,12 @@ public class LipSyncAnimatorCustomEditor : Editor
 
         EditorGUILayout.Space();
 
-        if(GUILayout.Button("Play selected animation") == true)
+        if (EditorApplication.isPlayingOrWillChangePlaymode)
         {
-            myTarget.PlayLipSyncAnimation();
+            if (GUILayout.Button("Play selected animation") == true)
+            {
+                myTarget.PlayLipSyncAnimation();
+            }
         }
     }
 }

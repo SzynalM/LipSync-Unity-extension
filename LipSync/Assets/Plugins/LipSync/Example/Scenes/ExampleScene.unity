@@ -1007,11 +1007,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f172f0cd184f44bb6b545e25bfc762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 3
-  reductionSpeed: 250
+  reductionSpeedMultiplier: 3
+  defaultReductionSpeed: 300
   incrementationSpeed: 900
   overallIntensity: 100
-  dialogueData: {fileID: 11400000, guid: 9bf96cd82d01d2e479b3a55b11d70a97, type: 2}
+  dialogueData: {fileID: 11400000, guid: ca3f8526bad8c184d99d75e6c780f1f9, type: 2}
   subtitlesDisplayer: {fileID: 486970570}
   dialogueAudioPlayer: {fileID: 645401380}
   dialogueAudioSource: {fileID: 645401376}
