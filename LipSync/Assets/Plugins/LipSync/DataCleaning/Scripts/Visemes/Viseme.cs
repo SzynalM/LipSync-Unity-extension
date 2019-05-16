@@ -11,14 +11,14 @@ namespace VisemeExtraction
         public float intensity;
         public float pronunciationSpeed;
 
+        private int currentBlendShapeIndex;
+
         public Viseme Init(float _intensity, float _pronunciationSpeed)
         {
             intensity = _intensity;
             pronunciationSpeed = _pronunciationSpeed;
             return this;
         }
-
-        private int currentBlendShapeIndex;
 
         public virtual void ShowViseme(SkinnedMeshRenderer skinnedMeshRenderer, int incrementationSpeed, int overallIntensity)
         {

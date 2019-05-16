@@ -28,6 +28,7 @@ public class LipSyncCreator
     private void AssignVisemeData()
     {
         visemes = silenceDetector.DetectSilence(visemeExtractor.ExtractVisemes(dataCleaner.CleanRawPhonemeData(phonemeFilePath)));
+        LoadingBarViewer.Instance.SetNextPhase();
     }
 
     private void CreateAsset()
@@ -68,7 +69,7 @@ public class LipSyncCreator
                 }
             }
             AssetDatabase.SaveAssets();
-
+            LoadingBarViewer.Instance.SetNextPhase();
         }
         catch (Exception e)
         {

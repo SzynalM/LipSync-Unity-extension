@@ -14,6 +14,7 @@ namespace DataCleaning
         {
             try
             {
+                LoadingBarViewer.Instance.SetNextPhase();
                 string[] rawPhonemeDataFromFile = phonemeFileLoader.LoadRawPhonemeData(phonemeFilePath);
 
                 return

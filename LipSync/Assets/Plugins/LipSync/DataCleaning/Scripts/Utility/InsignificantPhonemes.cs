@@ -2,6 +2,6 @@
 {
     public static class InsignificantPhonemes
     {
-        public static string[] Phonemes { get; } = { "HH", "K", "NG", "TH", "T", "Z", "R" };
+        public static string[] Phonemes { get; } = { "HH", "K", "NG", "TH", "T", "Z", "R", "N", "D" };
     }
 }

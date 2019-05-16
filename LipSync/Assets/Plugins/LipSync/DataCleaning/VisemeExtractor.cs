@@ -34,7 +34,7 @@ namespace VisemeExtraction
                         }
                     }
                 }
-                Debug.Log("Visemes extracted");
+                DataCleaning.LoadingBarViewer.Instance.SetNextPhase();
                 return visemes;
             }
             catch (System.Exception e)

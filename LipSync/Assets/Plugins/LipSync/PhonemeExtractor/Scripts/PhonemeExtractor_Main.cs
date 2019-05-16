@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using UnityEngine;
 using UnityEditor;
-using System.Threading;
 
 namespace PhonemeExtractor
 {
@@ -23,7 +22,8 @@ namespace PhonemeExtractor
             textTranscripton = transcription;
             audioFilePath = AssetDatabase.GetAssetPath(audioFile);
             currentPaths = dataManager.LoadWindowData();
-            RunJavaProcess();            
+            RunJavaProcess();
+            DataCleaning.LoadingBarViewer.Instance.StartLoading();
         }
 
         void RunJavaProcess()

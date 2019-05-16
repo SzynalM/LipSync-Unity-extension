@@ -12,21 +12,20 @@ namespace DataCleaning
             {
                 if (instance == null)
                 {
-                    instance = new LoadingBarViewer();
+                    instance = CreateInstance<LoadingBarViewer>();
                 }
                 return instance;
             }
         }
         #endregion
 
-        private static EditorWindow editorWindow;
-        private static bool isLoadingBarVisible = false;
-        private static string messageToDisplay = "";
-        private static float progress = 0;
-        private static int phase = 0;
+        private EditorWindow editorWindow;
+        private bool isLoadingBarVisible = false;
+        private string messageToDisplay = "";
+        private float progress = 0;
+        private int phase = 0;
 
-        [MenuItem("Tools/Quit test Loading bar")]
-        public static void StartLoading()
+        public void StartLoading()
         {
             SetInitialValues(true);
             UpdateLoadingBar();
@@ -37,8 +36,7 @@ namespace DataCleaning
             Repaint();
         }
 
-        [MenuItem("Tools/NextPhase")]
-        public static void SetNextPhase()
+        public void SetNextPhase()
         {
             if (isLoadingBarVisible == true && phase < LoadingBarMessages.GetAllPhaseNames().Length)
             {
@@ -49,7 +47,7 @@ namespace DataCleaning
             UpdateLoadingBar();
         }
 
-        private static void UpdateLoadingBar()
+        private void UpdateLoadingBar()
         {
             if (isLoadingBarVisible)
             {
@@ -66,7 +64,7 @@ namespace DataCleaning
             }
         }
 
-        private static void SetInitialValues(bool visible)
+        private void SetInitialValues(bool visible)
         {
             phase = 0;
             messageToDisplay = LoadingBarMessages.GetAllPhaseNames()[phase];
