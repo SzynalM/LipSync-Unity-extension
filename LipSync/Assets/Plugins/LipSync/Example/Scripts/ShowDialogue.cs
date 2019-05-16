@@ -11,21 +11,18 @@ public class ShowDialogue : MonoBehaviour
     [SerializeField]
     private VisemeScriptableObject newYork;
 
-    [SerializeField]
-    public enum Dialogue { Numbers, Apples, NewYork }
-
     public void PlayNumbers()
     {
-        animator.AssignNewDialogueData(numbers);
+        animator.PlayLipSyncAnimation(numbers);
     }
 
     public void PlayNewYork()
     {
-        animator.AssignNewDialogueData(newYork);
+        animator.PlayLipSyncAnimation(newYork);
     }
 
     public void PlayApples()
     {
-        animator.AssignNewDialogueData(apples);
+        animator.PlayLipSyncAnimation(apples);
     }
 }

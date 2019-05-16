@@ -1,4 +1,4 @@
-﻿using LipsyncUtility;
+﻿using System;
 using System.Collections.Generic;
 using Unity.Burst;
 using UnityEngine;
@@ -9,6 +9,9 @@ using VisemeExtraction;
 [RequireComponent(typeof(SkinnedMeshRenderer))]
 public class LipSyncAnimator : MonoBehaviour
 {
+    public event Action<VisemeScriptableObject> OnDialogueStarted;
+    public event Action OnDialogueEnded;
+
     [SerializeField]
     float reduction = 3;
     [SerializeField]
@@ -23,6 +26,8 @@ public class LipSyncAnimator : MonoBehaviour
 
     [SerializeField] //for tests
     private VisemeScriptableObject dialogueData;
+    [SerializeField]
+    private ShowSubtitles subtitlesDisplayer;
 
     [SerializeField]
     private AudioSource dialogueAudioSource;
@@ -35,11 +40,18 @@ public class LipSyncAnimator : MonoBehaviour
     private int currentBlendShapeIndex;
     private int currentVisemeIndex;
 
+    private bool isDialoguePlaying;
+
     private void Awake()
     {
+        OnDialogueStarted += subtitlesDisplayer.DisplaySubtitles;
+        OnDialogueEnded += subtitlesDisplayer.HideSubtitles;
+
         skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
         sharedMesh = skinnedMeshRenderer.sharedMesh;
-        dialogueAudio = dialogueData.dialogueAudio;
+        fasterReductionTime = reductionSpeed * 1.4f;
+        halvedReductionTime = reductionSpeed / reduction;
+        _reductionSpeed = reductionSpeed;
     }
 
     private void Update()
@@ -47,7 +59,7 @@ public class LipSyncAnimator : MonoBehaviour
         ShowVisemes();
     }
 
-    public void AssignNewDialogueData(VisemeScriptableObject data)
+    public void PlayLipSyncAnimation(VisemeScriptableObject data)
     {
         dialogueData = data;
         PlayLipSyncAnimation();
@@ -56,33 +68,41 @@ public class LipSyncAnimator : MonoBehaviour
     [BurstCompile]
     public void PlayLipSyncAnimation()
     {
-#if UNITY_EDITOR
-        dialogueAudio = dialogueData.dialogueAudio;
-        skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
-        sharedMesh = skinnedMeshRenderer.sharedMesh;
-#endif
-        _reductionSpeed = reductionSpeed;
-        fasterReductionTime = reductionSpeed * 1.4f;
-        halvedReductionTime = reductionSpeed / reduction;
-        dialogueAudioSource.clip = dialogueAudio;
-        dialogueAudioSource.Play();
+        dialogueAudio = dialogueData.dialogueAudio; //for tests
         visemes = dialogueData.generatedVisemes;
         currentVisemeIndex = 0;
         currentViseme = visemes[currentVisemeIndex] as Viseme;
         currentBlendShapeIndex = BlendShapeInfo.GetBlendShapeIndex(currentViseme);
+
+        dialogueAudioSource.clip = dialogueAudio;
+        dialogueAudioSource.Play();
+
+        OnDialogueStarted?.Invoke(dialogueData);
     }
 
     [BurstCompile]
     private void ShowVisemes() //in update
     {
-        if (AreAllBlendShapesZeroed() == false)
+        if (AreAllBlendShapesZeroed() == true && dialogueAudioSource.isPlaying == false)
         {
-            Debug.Log("Zeroing " + AreAllBlendShapesZeroed());
-            ZeroOutAllBlendShapes();
+            if(isDialoguePlaying == true)
+            {
+                isDialoguePlaying = false;
+                OnDialogueEnded?.Invoke();
+            }
+            return;
         }
-        if (dialogueAudioSource.isPlaying)
+        else
         {
-            IncrementCurrentVisemeBlendShape(currentViseme);
+            isDialoguePlaying = true;
+            if (AreAllBlendShapesZeroed() == false)
+            {
+                ZeroOutAllBlendShapes();
+            }
+            if (dialogueAudioSource.isPlaying)
+            {
+                IncrementCurrentVisemeBlendShape(currentViseme);
+            }
         }
     }
 
@@ -124,9 +144,8 @@ public class LipSyncAnimator : MonoBehaviour
             int currentVisemeEndTime = _currentViseme.EndTime;
             _reductionSpeed = halvedReductionTime;
         }
-        else 
+        else
         {
-            Debug.Log("Reduction " + _reductionSpeed + " = " + halvedReductionTime);
             _reductionSpeed = halvedReductionTime;
         }
     }
