@@ -5,7 +5,8 @@ namespace DataCleaning
 {
     public class DiphthongSimplifier
     {
-        private Dictionary<string, string> diphthongToPhonemesDictionary = new Dictionary<string, string>()
+        private Dictionary<string, string> diphthongToPhonemesDictionary 
+            = new Dictionary<string, string>()
         {
             {"AW","AA UH"},
             {"AY", "AA IY"},

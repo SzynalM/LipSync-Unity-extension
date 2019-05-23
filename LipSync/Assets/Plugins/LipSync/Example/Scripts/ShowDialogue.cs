@@ -4,7 +4,7 @@ public class ShowDialogue : MonoBehaviour
 {
 #pragma warning disable CS0649
     [SerializeField]
-    private LipSyncAnimator animator;
+    private LipSyncAnimator lipSyncAnimator;
     [SerializeField]
     private VisemeScriptableObject numbers;
     [SerializeField]
@@ -14,16 +14,16 @@ public class ShowDialogue : MonoBehaviour
 
     public void PlayNumbers()
     {
-        animator.PlayLipSyncAnimation(numbers);
+        lipSyncAnimator.PlayLipSyncAnimation(numbers);
     }
 
     public void PlayNewYork()
     {
-        animator.PlayLipSyncAnimation(newYork);
+        lipSyncAnimator.PlayLipSyncAnimation(newYork);
     }
 
     public void PlayApples()
     {
-        animator.PlayLipSyncAnimation(apples);
+        lipSyncAnimator.PlayLipSyncAnimation(apples);
     }
 }

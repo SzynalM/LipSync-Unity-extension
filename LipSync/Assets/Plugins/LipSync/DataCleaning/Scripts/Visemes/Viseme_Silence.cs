@@ -5,12 +5,12 @@ namespace VisemeExtraction
     [System.Serializable]
     public class Viseme_Silence : Viseme
     {
-        public Viseme_Silence Init(int startTime, int endTime)
+        public Viseme_Silence Init(int _startTime, int _endTime)
         {
             pronunciationSpeed = 1;
             intensity = 1;
-            StartTime = startTime;
-            EndTime = endTime;
+            startTime = _startTime;
+            endTime = _endTime;
             return this;
         }
 

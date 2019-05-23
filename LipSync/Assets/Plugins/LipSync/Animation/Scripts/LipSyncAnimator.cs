@@ -141,8 +141,8 @@ public class LipSyncAnimator : MonoBehaviour
     {
         currentViseme = (Viseme)visemes[currentVisemeIndex];
         currentBlendShapeIndex = BlendShapeInfo.GetBlendShapeIndex(currentViseme);
-        currentVisemeStartTime = currentViseme.StartTime;
-        currentVisemeEndTime = currentViseme.EndTime;
+        currentVisemeStartTime = currentViseme.startTime;
+        currentVisemeEndTime = currentViseme.endTime;
     }
 
     private bool HasDialogueFinished()
@@ -152,12 +152,12 @@ public class LipSyncAnimator : MonoBehaviour
 
     private bool HasCurrentVisemeEnded()
     {
-        return dialogueAudioSource.time * 1000 > currentViseme.EndTime;
+        return dialogueAudioSource.time * 1000 > currentViseme.endTime;
     }
 
     private bool HasCurrentVisemeStarted()
     {
-        return currentViseme.StartTime < dialogueAudioSource.time * 1000 && currentViseme.EndTime > dialogueAudioSource.time * 1000;
+        return currentViseme.startTime < dialogueAudioSource.time * 1000 && currentViseme.endTime > dialogueAudioSource.time * 1000;
     }
 
     private bool AreAllBlendShapesZeroed()

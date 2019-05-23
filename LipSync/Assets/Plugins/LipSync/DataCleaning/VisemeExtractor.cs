@@ -48,8 +48,8 @@ namespace VisemeExtraction
         {
             int interval = endTime - startTime;
             int visemeDuration = Mathf.RoundToInt(interval / amountOfPhonemesInWord);
-            viseme.StartTime = startTime + visemeDuration * index;
-            viseme.EndTime = startTime + visemeDuration * (index + 1);
+            viseme.startTime = startTime + visemeDuration * index;
+            viseme.endTime = startTime + visemeDuration * (index + 1);
         }
 
         private Dictionary<string, Viseme> CreateDictionary()
@@ -66,15 +66,15 @@ namespace VisemeExtraction
                     {"EH", ScriptableObject.CreateInstance<Viseme_EE>().Init(0.7f, 0.8f) },
                     {"F", ScriptableObject.CreateInstance<Viseme_FV>().Init(0.3f, 1) },
                     {"G", ScriptableObject.CreateInstance<Viseme_EE>().Init(0.30f, 1) },
-                    {"HH", ScriptableObject.CreateInstance<Viseme_AA>().Init(0.15f, 0.85f) }, //insignificant (inherits from previous and next)
+                    {"HH", ScriptableObject.CreateInstance<Viseme_AA>().Init(0.15f, 0.85f) }, //insignificant
                     {"IH", ScriptableObject.CreateInstance<Viseme_EE>().Init(0.55f, 0.8f) },
                     {"IY", ScriptableObject.CreateInstance<Viseme_IH>().Init(0.5f, 1) },
                     {"JH", ScriptableObject.CreateInstance<Viseme_CH>().Init(1, 1) },
-                    {"K", ScriptableObject.CreateInstance<Viseme_AA>().Init(0.15f, 0.85f) }, //insignificant (inherits from previous and next)
+                    {"K", ScriptableObject.CreateInstance<Viseme_AA>().Init(0.15f, 0.85f) }, //insignificant
                     {"L", ScriptableObject.CreateInstance<Viseme_Mixed>().Init(ScriptableObject.CreateInstance<Viseme_OO>().Init(0.22f, 0.8f), ScriptableObject.CreateInstance<Viseme_EE>().Init(0.3f, 0.8f)) },
                     {"M", ScriptableObject.CreateInstance<Viseme_BM>().Init(0.6f, 1) },
-                    {"N", ScriptableObject.CreateInstance<Viseme_AA>().Init(0.15f, 0.85f) }, //insignificant (inherits from previous and next)
-                    {"NG", ScriptableObject.CreateInstance<Viseme_EE>().Init(0.3f, 0.85f)  }, //insignificant (inherits from previous)
+                    {"N", ScriptableObject.CreateInstance<Viseme_AA>().Init(0.15f, 0.85f) }, //insignificant
+                    {"NG", ScriptableObject.CreateInstance<Viseme_EE>().Init(0.3f, 0.85f)  }, //insignificant
                     {"P",  ScriptableObject.CreateInstance<Viseme_BM>().Init(0.3f, 1)},
                     {"R", ScriptableObject.CreateInstance<Viseme_R>().Init(0.3f, 0.8f) },
                     {"S", ScriptableObject.CreateInstance<Viseme_R>().Init(0.2f, 0.8f) },

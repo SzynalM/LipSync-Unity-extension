@@ -8,7 +8,6 @@ namespace PhonemeExtractor
     //CMD Arguments: AcousticModel DictionaryPath WavFilePath TranscriptionString TempFolderPath 
     public class PhonemeExtractor_Main
     {
-        //May be extracted to separate static class
         public static AudioClip audioClip;
         public static string textTranscripton = "";
         public static string audioFilePath = "";
@@ -26,7 +25,7 @@ namespace PhonemeExtractor
             DataCleaning.LoadingBarViewer.Instance.StartLoading();
         }
 
-        void RunJavaProcess()
+        private void RunJavaProcess()
         {
             Process javaPhonemeExtractor = new Process();
             javaPhonemeExtractor.EnableRaisingEvents = true;

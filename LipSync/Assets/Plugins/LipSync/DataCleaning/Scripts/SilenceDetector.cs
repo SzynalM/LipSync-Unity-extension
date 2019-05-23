@@ -17,8 +17,8 @@ public class SilenceDetector
 
             for (int i = 0; i < visemes.Count; i++)
             {
-                timestamps[i + 1] = (visemes[i] as Viseme).StartTime;
-                timestamps[i + 2] = (visemes[i] as Viseme).EndTime;
+                timestamps[i + 1] = (visemes[i] as Viseme).startTime;
+                timestamps[i + 2] = (visemes[i] as Viseme).endTime;
             }
 
             for (int i = 0; i < timestamps.Length - 2; i++)
