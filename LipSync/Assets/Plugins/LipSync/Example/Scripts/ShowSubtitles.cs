@@ -1,16 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
-[RequireComponent(typeof(TextMeshProUGUI))]
 public class ShowSubtitles : MonoBehaviour
 {
-    private TextMeshProUGUI thisText;
+    private Text thisText;
 
     private void Awake()
     {
-        thisText = GetComponent<TextMeshProUGUI>();
+        thisText = GetComponent<Text>();
     }
 
     public void DisplaySubtitles(VisemeScriptableObject dialogueData)

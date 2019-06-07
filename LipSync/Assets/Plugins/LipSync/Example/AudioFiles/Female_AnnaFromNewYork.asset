@@ -15,63 +15,28 @@ MonoBehaviour:
   dialogueTranscription: My name is Anna and I live in New York.
   dialogueAudio: {fileID: 8300000, guid: e54b05e754a512848806cab292dee66b, type: 3}
   generatedVisemes:
-  - {fileID: 114885306735439674}
-  - {fileID: 114846139217365336}
-  - {fileID: 114214053385705176}
-  - {fileID: 114080716396753858}
-  - {fileID: 114102977447426288}
-  - {fileID: 114669632130538502}
-  - {fileID: 114256918892614398}
-  - {fileID: 114343483204115598}
-  - {fileID: 114225505939404086}
-  - {fileID: 114516496926131288}
-  - {fileID: 114100509822087380}
-  - {fileID: 114850228718543926}
-  - {fileID: 114647396743896482}
-  - {fileID: 114568099940747820}
-  - {fileID: 114832284803815774}
-  - {fileID: 114646565195752930}
-  - {fileID: 114815275451568524}
-  - {fileID: 114057721523940350}
-  - {fileID: 114733266232912008}
-  - {fileID: 114602681051700648}
-  - {fileID: 114526497796431168}
---- !u!114 &114057721523940350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db31406ab6eca4944b46e24b1697ed86, type: 3}
-  m_Name: Viseme_Mixed
-  m_EditorClassIdentifier: 
-  StartTime: 2120
-  EndTime: 2310
-  intensity: 0
-  pronunciationSpeed: 0
-  visemes:
-  - {fileID: 114997244293025080}
-  - {fileID: 114324212081887444}
---- !u!114 &114069179278002768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 705df5dd9705d064ab001b8723f6a7c1, type: 3}
-  m_Name: Viseme_OO
-  m_EditorClassIdentifier: 
-  StartTime: 0
-  EndTime: 0
-  intensity: 0.22
-  pronunciationSpeed: 0.8
---- !u!114 &114080716396753858
+  - {fileID: 114378320296431498}
+  - {fileID: 114546804108369160}
+  - {fileID: 114905607325680166}
+  - {fileID: 114318824452417088}
+  - {fileID: 114213886739895958}
+  - {fileID: 114152794243256826}
+  - {fileID: 114919893505701482}
+  - {fileID: 114137739904164124}
+  - {fileID: 114814543299018670}
+  - {fileID: 114484402547154320}
+  - {fileID: 114228103397709110}
+  - {fileID: 114337051109052796}
+  - {fileID: 114724915607760902}
+  - {fileID: 114209803346954264}
+  - {fileID: 114439973912694174}
+  - {fileID: 114848549465046454}
+  - {fileID: 114902413026865972}
+  - {fileID: 114668176897056758}
+  - {fileID: 114047139114592796}
+  - {fileID: 114582173159873352}
+  - {fileID: 114371590167493728}
+--- !u!114 &114047139114592796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,107 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18fdf27f7ab67ad46b1aec6edf35a6f7, type: 3}
   m_Name: Viseme_EE
   m_EditorClassIdentifier: 
-  StartTime: 520
-  EndTime: 610
-  intensity: 0.7
-  pronunciationSpeed: 0.8
---- !u!114 &114086159838944492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18fdf27f7ab67ad46b1aec6edf35a6f7, type: 3}
-  m_Name: Viseme_EE
-  m_EditorClassIdentifier: 
-  StartTime: 0
-  EndTime: 0
+  startTime: 2320
+  endTime: 2400
   intensity: 0.3
-  pronunciationSpeed: 0.8
---- !u!114 &114100509822087380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f3bf7ff1a309a43b34bcd589915608, type: 3}
-  m_Name: Viseme_AA
-  m_EditorClassIdentifier: 
-  StartTime: 1560
-  EndTime: 1625
-  intensity: 0.5
-  pronunciationSpeed: 0.6
---- !u!114 &114102977447426288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c241a6949c641b4c858115740e51142, type: 3}
-  m_Name: Viseme_IH
-  m_EditorClassIdentifier: 
-  StartTime: 610
-  EndTime: 700
-  intensity: 0.5
-  pronunciationSpeed: 1
---- !u!114 &114214053385705176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c241a6949c641b4c858115740e51142, type: 3}
-  m_Name: Viseme_IH
-  m_EditorClassIdentifier: 
-  StartTime: 442
-  EndTime: 508
-  intensity: 0.5
-  pronunciationSpeed: 1
---- !u!114 &114225505939404086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f3bf7ff1a309a43b34bcd589915608, type: 3}
-  m_Name: Viseme_AA
-  m_EditorClassIdentifier: 
-  StartTime: 1176
-  EndTime: 1279
-  intensity: 0.6
-  pronunciationSpeed: 0.6
---- !u!114 &114256918892614398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18fdf27f7ab67ad46b1aec6edf35a6f7, type: 3}
-  m_Name: Viseme_EE
-  m_EditorClassIdentifier: 
-  StartTime: 800
-  EndTime: 920
-  intensity: 0.55
-  pronunciationSpeed: 0.8
---- !u!114 &114324212081887444
+  pronunciationSpeed: 0.7
+--- !u!114 &114103628250742894
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,11 +64,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50fe8bc8b82bb2d4fb2c03ad104a8a42, type: 3}
   m_Name: Viseme_UU
   m_EditorClassIdentifier: 
-  StartTime: 0
-  EndTime: 0
+  startTime: 0
+  endTime: 0
   intensity: 0.8
   pronunciationSpeed: 0.8
---- !u!114 &114343483204115598
+--- !u!114 &114137739904164124
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -211,11 +80,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f3bf7ff1a309a43b34bcd589915608, type: 3}
   m_Name: Viseme_AA
   m_EditorClassIdentifier: 
-  StartTime: 970
-  EndTime: 1073
+  startTime: 970
+  endTime: 1073
   intensity: 0.4
   pronunciationSpeed: 0.6
---- !u!114 &114516496926131288
+--- !u!114 &114152794243256826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75191a7a546ca6479844d0266d2c815, type: 3}
+  m_Name: Viseme_BM
+  m_EditorClassIdentifier: 
+  startTime: 700
+  endTime: 790
+  intensity: 0.6
+  pronunciationSpeed: 1
+--- !u!114 &114209803346954264
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,11 +112,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f3bf7ff1a309a43b34bcd589915608, type: 3}
   m_Name: Viseme_AA
   m_EditorClassIdentifier: 
-  StartTime: 1380
-  EndTime: 1550
-  intensity: 0.6
+  startTime: 1740
+  endTime: 1780
+  intensity: 0.5
   pronunciationSpeed: 0.6
---- !u!114 &114526497796431168
+--- !u!114 &114213886739895958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c241a6949c641b4c858115740e51142, type: 3}
+  m_Name: Viseme_IH
+  m_EditorClassIdentifier: 
+  startTime: 610
+  endTime: 700
+  intensity: 0.5
+  pronunciationSpeed: 1
+--- !u!114 &114228103397709110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f3bf7ff1a309a43b34bcd589915608, type: 3}
+  m_Name: Viseme_AA
+  m_EditorClassIdentifier: 
+  startTime: 1560
+  endTime: 1625
+  intensity: 0.5
+  pronunciationSpeed: 0.6
+--- !u!114 &114271864309643224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f3bf7ff1a309a43b34bcd589915608, type: 3}
+  m_Name: Viseme_AA
+  m_EditorClassIdentifier: 
+  startTime: 0
+  endTime: 0
+  intensity: 0.15
+  pronunciationSpeed: 0.8
+--- !u!114 &114318824452417088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18fdf27f7ab67ad46b1aec6edf35a6f7, type: 3}
+  m_Name: Viseme_EE
+  m_EditorClassIdentifier: 
+  startTime: 520
+  endTime: 610
+  intensity: 0.7
+  pronunciationSpeed: 0.8
+--- !u!114 &114337051109052796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c241a6949c641b4c858115740e51142, type: 3}
+  m_Name: Viseme_IH
+  m_EditorClassIdentifier: 
+  startTime: 1625
+  endTime: 1690
+  intensity: 0.5
+  pronunciationSpeed: 1
+--- !u!114 &114371590167493728
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,11 +208,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f8eb82ca2b36141b475c20b751d5b6, type: 3}
   m_Name: Viseme_Silence
   m_EditorClassIdentifier: 
-  StartTime: 2480
-  EndTime: 3367
+  startTime: 2480
+  endTime: 3367
   intensity: 1
   pronunciationSpeed: 1
---- !u!114 &114568099940747820
+--- !u!114 &114378320296431498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75191a7a546ca6479844d0266d2c815, type: 3}
+  m_Name: Viseme_BM
+  m_EditorClassIdentifier: 
+  startTime: 310
+  endTime: 376
+  intensity: 0.6
+  pronunciationSpeed: 1
+--- !u!114 &114439973912694174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c241a6949c641b4c858115740e51142, type: 3}
+  m_Name: Viseme_IH
+  m_EditorClassIdentifier: 
+  startTime: 1780
+  endTime: 1820
+  intensity: 0.5
+  pronunciationSpeed: 1
+--- !u!114 &114484402547154320
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -259,11 +256,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f3bf7ff1a309a43b34bcd589915608, type: 3}
   m_Name: Viseme_AA
   m_EditorClassIdentifier: 
-  StartTime: 1740
-  EndTime: 1780
+  startTime: 1380
+  endTime: 1550
+  intensity: 0.6
+  pronunciationSpeed: 0.6
+--- !u!114 &114546804108369160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f3bf7ff1a309a43b34bcd589915608, type: 3}
+  m_Name: Viseme_AA
+  m_EditorClassIdentifier: 
+  startTime: 376
+  endTime: 442
   intensity: 0.5
   pronunciationSpeed: 0.6
---- !u!114 &114602681051700648
+--- !u!114 &114582173159873352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -275,27 +288,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705df5dd9705d064ab001b8723f6a7c1, type: 3}
   m_Name: Viseme_OO
   m_EditorClassIdentifier: 
-  StartTime: 2400
-  EndTime: 2480
+  startTime: 2400
+  endTime: 2480
   intensity: 0.8
   pronunciationSpeed: 0.9
---- !u!114 &114646565195752930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb09c5cf5e4ce9b48b32bfd030765803, type: 3}
-  m_Name: Viseme_FV
-  m_EditorClassIdentifier: 
-  StartTime: 1820
-  EndTime: 1860
-  intensity: 0.75
-  pronunciationSpeed: 1
---- !u!114 &114647396743896482
+--- !u!114 &114668176897056758
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -307,30 +304,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db31406ab6eca4944b46e24b1697ed86, type: 3}
   m_Name: Viseme_Mixed
   m_EditorClassIdentifier: 
-  StartTime: 1700
-  EndTime: 1740
+  startTime: 2120
+  endTime: 2310
   intensity: 0
   pronunciationSpeed: 0
   visemes:
-  - {fileID: 114069179278002768}
-  - {fileID: 114086159838944492}
---- !u!114 &114669632130538502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e75191a7a546ca6479844d0266d2c815, type: 3}
-  m_Name: Viseme_BM
-  m_EditorClassIdentifier: 
-  StartTime: 700
-  EndTime: 790
-  intensity: 0.6
-  pronunciationSpeed: 1
---- !u!114 &114733266232912008
+  - {fileID: 114271864309643224}
+  - {fileID: 114103628250742894}
+--- !u!114 &114720546129851624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -342,11 +323,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18fdf27f7ab67ad46b1aec6edf35a6f7, type: 3}
   m_Name: Viseme_EE
   m_EditorClassIdentifier: 
-  StartTime: 2320
-  EndTime: 2400
+  startTime: 0
+  endTime: 0
   intensity: 0.3
-  pronunciationSpeed: 0.7
---- !u!114 &114815275451568524
+  pronunciationSpeed: 0.8
+--- !u!114 &114724915607760902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db31406ab6eca4944b46e24b1697ed86, type: 3}
+  m_Name: Viseme_Mixed
+  m_EditorClassIdentifier: 
+  startTime: 1700
+  endTime: 1740
+  intensity: 0
+  pronunciationSpeed: 0
+  visemes:
+  - {fileID: 114995265987623048}
+  - {fileID: 114720546129851624}
+--- !u!114 &114814543299018670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f3bf7ff1a309a43b34bcd589915608, type: 3}
+  m_Name: Viseme_AA
+  m_EditorClassIdentifier: 
+  startTime: 1176
+  endTime: 1279
+  intensity: 0.6
+  pronunciationSpeed: 0.6
+--- !u!114 &114848549465046454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb09c5cf5e4ce9b48b32bfd030765803, type: 3}
+  m_Name: Viseme_FV
+  m_EditorClassIdentifier: 
+  startTime: 1820
+  endTime: 1860
+  intensity: 0.75
+  pronunciationSpeed: 1
+--- !u!114 &114902413026865972
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -358,11 +390,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18fdf27f7ab67ad46b1aec6edf35a6f7, type: 3}
   m_Name: Viseme_EE
   m_EditorClassIdentifier: 
-  StartTime: 1870
-  EndTime: 2110
+  startTime: 1870
+  endTime: 2110
   intensity: 0.55
   pronunciationSpeed: 0.8
---- !u!114 &114832284803815774
+--- !u!114 &114905607325680166
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -374,11 +406,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c241a6949c641b4c858115740e51142, type: 3}
   m_Name: Viseme_IH
   m_EditorClassIdentifier: 
-  StartTime: 1780
-  EndTime: 1820
+  startTime: 442
+  endTime: 508
   intensity: 0.5
   pronunciationSpeed: 1
---- !u!114 &114846139217365336
+--- !u!114 &114919893505701482
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -387,14 +419,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f3bf7ff1a309a43b34bcd589915608, type: 3}
-  m_Name: Viseme_AA
+  m_Script: {fileID: 11500000, guid: 18fdf27f7ab67ad46b1aec6edf35a6f7, type: 3}
+  m_Name: Viseme_EE
   m_EditorClassIdentifier: 
-  StartTime: 376
-  EndTime: 442
-  intensity: 0.5
-  pronunciationSpeed: 0.6
---- !u!114 &114850228718543926
+  startTime: 800
+  endTime: 920
+  intensity: 0.55
+  pronunciationSpeed: 0.8
+--- !u!114 &114995265987623048
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -403,42 +435,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c241a6949c641b4c858115740e51142, type: 3}
-  m_Name: Viseme_IH
+  m_Script: {fileID: 11500000, guid: 705df5dd9705d064ab001b8723f6a7c1, type: 3}
+  m_Name: Viseme_OO
   m_EditorClassIdentifier: 
-  StartTime: 1625
-  EndTime: 1690
-  intensity: 0.5
-  pronunciationSpeed: 1
---- !u!114 &114885306735439674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e75191a7a546ca6479844d0266d2c815, type: 3}
-  m_Name: Viseme_BM
-  m_EditorClassIdentifier: 
-  StartTime: 310
-  EndTime: 376
-  intensity: 0.6
-  pronunciationSpeed: 1
---- !u!114 &114997244293025080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f3bf7ff1a309a43b34bcd589915608, type: 3}
-  m_Name: Viseme_AA
-  m_EditorClassIdentifier: 
-  StartTime: 0
-  EndTime: 0
-  intensity: 0.15
+  startTime: 0
+  endTime: 0
+  intensity: 0.22
   pronunciationSpeed: 0.8
