@@ -14,7 +14,7 @@ public class AudioFileCustomEditor : Editor
     public bool audioClipIsDialogue = false;
     public bool buttonEnabled = true;
     public string transcription = "";
-     
+
     private FileSystemWatcher fileSystemWatcher;
     private AudioClip myTarget;
 
@@ -49,10 +49,9 @@ public class AudioFileCustomEditor : Editor
     {
         fileSystemWatcher = new FileSystemWatcher(dataManager.LoadWindowData().TempFolderPath);
         fileSystemWatcher.EnableRaisingEvents = true;
-        fileSystemWatcher.Filter = "*.txt";
+        fileSystemWatcher.Filter = "*.txt"; 
         fileSystemWatcher.Created += OnPhonemeFileGenerated;
         fileSystemWatcher.Changed += OnPhonemeFileGenerated;
-        phonemeExtractor.RunPhonemeExtractor(myTarget, transcription);
     }
 
     private void OnPhonemeFileGenerated(object o, FileSystemEventArgs e)

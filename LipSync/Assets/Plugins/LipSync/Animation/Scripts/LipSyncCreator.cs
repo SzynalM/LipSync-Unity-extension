@@ -7,6 +7,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 using VisemeExtraction;
+using LipsyncUtility.ThreadControl;
 
 public class LipSyncCreator
 {
@@ -21,8 +22,8 @@ public class LipSyncCreator
     public void CreateLipsyncData(string _phonemeFilePath)
     {
         phonemeFilePath = _phonemeFilePath;
-        Dispatcher.Dispatch(AssignVisemeData);
-        Dispatcher.Dispatch(CreateAsset);
+        ThreadController.AddOperation(AssignVisemeData);
+        ThreadController.AddOperation(CreateAsset);
     }
 
     private void AssignVisemeData()
@@ -38,7 +39,7 @@ public class LipSyncCreator
             string scriptableObjectPath;
             if (dataManager.LoadWindowData().DialogueToggle)
             {
-                scriptableObjectPath = Path.Combine(Path.GetDirectoryName(PhonemeExtractor_Main.audioFilePath), PhonemeExtractor_Main.audioClip.name + ".asset");
+                scriptableObjectPath = Path.Combine(Path.GetDirectoryName(PhonemeExtractor_Main.pathToConvertedFile), PhonemeExtractor_Main.audioClip.name + ".asset");
             }
             else
             {
@@ -54,7 +55,7 @@ public class LipSyncCreator
             {
                 visemes[i].name = visemes[i].GetType().ToString().Split('.')[1];
                 //visemes[i].hideFlags = HideFlags.HideInHierarchy;
-                if (visemes[i] is Viseme_Mixed)
+                if (visemes[i] is Viseme_Mixed) 
                 {
                     AssetDatabase.AddObjectToAsset(visemes[i], scriptableObjectPath);
                     for (int j = 0; j < (visemes[i] as Viseme_Mixed).visemes.Length; j++)

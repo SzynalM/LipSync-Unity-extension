@@ -10,16 +10,16 @@ namespace PhonemeExtractor
     {
         public static AudioClip audioClip;
         public static string textTranscripton = "";
-        public static string audioFilePath = "";
+        public static string pathToConvertedFile;
 
         private DataManager dataManager = new DataManager();
         private WindowData currentPaths;
 
-        public void RunPhonemeExtractor(AudioClip audioFile, string transcription)
+        public void RunPhonemeExtractor(AudioClip audioFile, string transcription, string _pathToConvertedFile)
         {
             audioClip = audioFile;
+            pathToConvertedFile = _pathToConvertedFile;
             textTranscripton = transcription;
-            audioFilePath = AssetDatabase.GetAssetPath(audioFile);
             currentPaths = dataManager.LoadWindowData();
             RunJavaProcess();
             DataCleaning.LoadingBarViewer.Instance.StartLoading();
@@ -34,12 +34,12 @@ namespace PhonemeExtractor
                 FileName = "java",
                 UseShellExecute = true,
                 WindowStyle = ProcessWindowStyle.Minimized,
-                Arguments =
+                Arguments = 
                      " -jar "
                     + currentPaths.PluginPath + " "
                     + currentPaths.AcousticModelPath + " "
                     + currentPaths.DictionaryPath + " "
-                    + audioFilePath + " "
+                    + pathToConvertedFile + " "
                     + "\"" + textTranscripton + "\" "
                     + currentPaths.TempFolderPath
             };

@@ -865,7 +865,7 @@ MonoBehaviour:
   defaultReductionSpeed: 300
   incrementationSpeed: 900
   overallIntensity: 100
-  dialogueData: {fileID: 0}
+  dialogueData: {fileID: 11400000, guid: 4ac993f33e6ce76439107198aa4e0a4b, type: 2}
   subtitlesDisplayer: {fileID: 486970570}
   dialogueAudioPlayer: {fileID: 645401380}
   dialogueAudioSource: {fileID: 645401376}
@@ -1979,7 +1979,7 @@ MonoBehaviour:
   lipSyncAnimator: {fileID: 645401377}
   numbers: {fileID: 11400000, guid: ca3f8526bad8c184d99d75e6c780f1f9, type: 2}
   apples: {fileID: 11400000, guid: efb409b20f98d0d4594f4864fffbf858, type: 2}
-  newYork: {fileID: 11400000, guid: 4ac993f33e6ce76439107198aa4e0a4b, type: 2}
+  newYork: {fileID: 0}
 --- !u!114 &2032170907
 MonoBehaviour:
   m_ObjectHideFlags: 0
