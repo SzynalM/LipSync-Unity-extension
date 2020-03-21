@@ -1,0 +1,4 @@
+﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+  continuous.c
+D:\OtherProjects\LipSync\SpeechAlignment\Sphinx\pocketsphinx\src\programs\continuous.c(110,54): warning C4244: '=': conversion from 'float64' to 'float', possible loss of data
+  pocketsphinx_continuous.vcxproj -> D:\OtherProjects\LipSync\SpeechAlignment\Sphinx\pocketsphinx\\bin\Debug\Win32\pocketsphinx_continuous.exe
