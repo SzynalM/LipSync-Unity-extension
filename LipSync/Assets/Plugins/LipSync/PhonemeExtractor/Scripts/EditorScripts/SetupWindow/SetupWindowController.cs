@@ -37,6 +37,12 @@ namespace PhonemeExtractor.SetupWindow
                 hasLoaded = true;
             }
 
+            if (GUILayout.Button("asd"))
+            {
+                EditorPrefs.DeleteAll();
+            }
+
+
             GUILayout.Label("Set necessary paths", EditorStyles.boldLabel);
             GUILayout.Label("Default values might be incorrect", EditorStyles.label);
             GUILayout.Space(20);

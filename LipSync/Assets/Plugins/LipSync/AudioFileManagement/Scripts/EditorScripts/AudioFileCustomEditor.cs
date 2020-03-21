@@ -47,11 +47,16 @@ public class AudioFileCustomEditor : Editor
 
     private void GenerateVisemesButtonOnClick()
     {
-        fileSystemWatcher = new FileSystemWatcher(dataManager.LoadWindowData().TempFolderPath);
+        var tempFolderPath = dataManager.LoadWindowData().TempFolderPath;
+        if (Directory.Exists(tempFolderPath) == false)
+            Directory.CreateDirectory(tempFolderPath);
+
+        fileSystemWatcher = new FileSystemWatcher(tempFolderPath);
         fileSystemWatcher.EnableRaisingEvents = true;
         fileSystemWatcher.Filter = "*.txt"; 
         fileSystemWatcher.Created += OnPhonemeFileGenerated;
         fileSystemWatcher.Changed += OnPhonemeFileGenerated;
+        phonemeExtractor.RunPhonemeExtractor(myTarget, transcription, AssetDatabase.GetAssetPath(target));
     }
 
     private void OnPhonemeFileGenerated(object o, FileSystemEventArgs e)

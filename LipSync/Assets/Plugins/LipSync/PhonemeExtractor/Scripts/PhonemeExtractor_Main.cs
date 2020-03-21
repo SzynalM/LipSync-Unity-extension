@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEditor;
 
 namespace PhonemeExtractor
-{
-    //CMD Arguments: AcousticModel DictionaryPath WavFilePath TranscriptionString TempFolderPath 
+{ 
+    //CMD Arguments: AcousticModel DictionaryPath WaveFilePath TranscriptionString TempFolderPath 
     public class PhonemeExtractor_Main
     {
         public static AudioClip audioClip;
@@ -27,6 +27,14 @@ namespace PhonemeExtractor
 
         private void RunJavaProcess()
         {
+            string arguments = " -jar "
+                    + currentPaths.PluginPath + " "
+                    + currentPaths.AcousticModelPath + " "
+                    + currentPaths.DictionaryPath + " "
+                    + pathToConvertedFile + " "
+                    + "\"" + textTranscripton + "\" "
+                    + currentPaths.TempFolderPath;
+             
             Process javaPhonemeExtractor = new Process();
             javaPhonemeExtractor.EnableRaisingEvents = true;
             javaPhonemeExtractor.StartInfo = new ProcessStartInfo()
@@ -34,14 +42,7 @@ namespace PhonemeExtractor
                 FileName = "java",
                 UseShellExecute = true,
                 WindowStyle = ProcessWindowStyle.Minimized,
-                Arguments = 
-                     " -jar "
-                    + currentPaths.PluginPath + " "
-                    + currentPaths.AcousticModelPath + " "
-                    + currentPaths.DictionaryPath + " "
-                    + pathToConvertedFile + " "
-                    + "\"" + textTranscripton + "\" "
-                    + currentPaths.TempFolderPath
+                Arguments = arguments
             };
             javaPhonemeExtractor.Start();
         }
