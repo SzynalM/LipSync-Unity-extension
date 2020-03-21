@@ -1,11 +1,19 @@
-[Ll]ibrary/
-[Tt]emp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-Assets/*
-!Assets/Plugins
-!AudioConverter/*
+LipSync/*/[Ll]ibrary/
+LipSync/*/[Tt]emp/
+LipSync/*/[Oo]bj/
+LipSync/*/[Bb]uild/
+LipSync/*/[Bb]uilds/
+LipSync/*/Assets/*
+LipSync/*/!Assets/Plugins
+LipSync/*/!AudioConverter/*
+LipSync/[Ll]ibrary/
+LipSync/[Tt]emp/
+LipSync/[Oo]bj/
+LipSync/[Bb]uild/
+LipSync/[Bb]uilds/
+LipSync/Assets/*
+LipSync/!Assets/Plugins
+LipSync/!AudioConverter/*
 # Visual Studio cache directory
 LipSync/*/.vs/
 LipSync/.vs/
