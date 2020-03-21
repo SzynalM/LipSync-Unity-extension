@@ -1,0 +1,3 @@
+﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+  main.c
+  sphinx_jsgf2fsg.vcxproj -> D:\OtherProjects\LipSync\SpeechAlignment\Sphinx\sphinxbase\\bin\Debug\Win32\sphinx_jsgf2fsg.exe

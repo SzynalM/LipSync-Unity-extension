@@ -1,0 +1,3 @@
+﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+  sphinx_pitch.c
+  sphinx_pitch.vcxproj -> D:\OtherProjects\LipSync\SpeechAlignment\Sphinx\sphinxbase\\bin\Debug\Win32\sphinx_pitch.exe

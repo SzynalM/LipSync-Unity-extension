@@ -1,0 +1,5 @@
+﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+  sphinx_fe.c
+D:\OtherProjects\LipSync\SpeechAlignment\Sphinx\sphinxbase\src\sphinx_fe\sphinx_fe.c(184,1): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\OtherProjects\LipSync\SpeechAlignment\Sphinx\sphinxbase\src\sphinx_fe\sphinx_fe.c(394,27): warning C4018: '<': signed/unsigned mismatch
+  sphinx_fe.vcxproj -> D:\OtherProjects\LipSync\SpeechAlignment\Sphinx\sphinxbase\\bin\Debug\Win32\sphinx_fe.exe
