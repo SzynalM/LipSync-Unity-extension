@@ -1,4 +1,0 @@
-D:\OtherProjects\LipSync\AudioConverter\AudioConverter\AudioConverter\bin\Debug\netcoreapp3.1\AudioConverter.exe
-D:\OtherProjects\LipSync\AudioConverter\AudioConverter\AudioConverter\obj\Debug\netcoreapp3.1\AudioConverter.csprojAssemblyReference.cache
-D:\OtherProjects\LipSync\AudioConverter\AudioConverter\AudioConverter\obj\Debug\netcoreapp3.1\AudioConverter.AssemblyInfoInputs.cache
-D:\OtherProjects\LipSync\AudioConverter\AudioConverter\AudioConverter\obj\Debug\netcoreapp3.1\AudioConverter.AssemblyInfo.cs

@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "aTkBwMRdL8ebnA4iTD+hpITcxeG7BYe7BnL2R/x0s6lYIYB7djhmv37sOuY4EJ+nCuPIYYYrR7A/3hmX/1G2TQ==",
+  "success": true,
+  "projectFilePath": "D:\\OtherProjects\\LipSync\\AudioConverter\\AudioConverter\\AudioConverter.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\szync\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\szync\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\szync\\.nuget\\packages\\naudio\\1.10.0\\naudio.1.10.0.nupkg.sha512",
+    "C:\\Users\\szync\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\szync\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
+    "C:\\Users\\szync\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\szync\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
+    "C:\\Users\\szync\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "C:\\Users\\szync\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "C:\\Users\\szync\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

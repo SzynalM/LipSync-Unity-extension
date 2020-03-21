@@ -1,0 +1,9 @@
+D:\OtherProjects\LipSync\AudioConverter\AudioConverter\bin\Debug\netstandard2.0\linux-x64\AudioConverter.deps.json
+D:\OtherProjects\LipSync\AudioConverter\AudioConverter\bin\Debug\netstandard2.0\linux-x64\AudioConverter.dll
+D:\OtherProjects\LipSync\AudioConverter\AudioConverter\bin\Debug\netstandard2.0\linux-x64\AudioConverter.pdb
+D:\OtherProjects\LipSync\AudioConverter\AudioConverter\obj\Debug\netstandard2.0\linux-x64\AudioConverter.csprojAssemblyReference.cache
+D:\OtherProjects\LipSync\AudioConverter\AudioConverter\obj\Debug\netstandard2.0\linux-x64\AudioConverter.csproj.CoreCompileInputs.cache
+D:\OtherProjects\LipSync\AudioConverter\AudioConverter\obj\Debug\netstandard2.0\linux-x64\AudioConverter.AssemblyInfoInputs.cache
+D:\OtherProjects\LipSync\AudioConverter\AudioConverter\obj\Debug\netstandard2.0\linux-x64\AudioConverter.AssemblyInfo.cs
+D:\OtherProjects\LipSync\AudioConverter\AudioConverter\obj\Debug\netstandard2.0\linux-x64\AudioConverter.dll
+D:\OtherProjects\LipSync\AudioConverter\AudioConverter\obj\Debug\netstandard2.0\linux-x64\AudioConverter.pdb

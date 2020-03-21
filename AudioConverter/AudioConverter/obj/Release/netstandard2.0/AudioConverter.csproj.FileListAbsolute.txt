@@ -1,0 +1,8 @@
+D:\OtherProjects\LipSync\AudioConverter\AudioConverter\obj\Release\netstandard2.0\AudioConverter.csprojAssemblyReference.cache
+D:\OtherProjects\LipSync\AudioConverter\AudioConverter\obj\Release\netstandard2.0\AudioConverter.AssemblyInfoInputs.cache
+D:\OtherProjects\LipSync\AudioConverter\AudioConverter\obj\Release\netstandard2.0\AudioConverter.AssemblyInfo.cs
+D:\OtherProjects\LipSync\AudioConverter\AudioConverter\bin\Release\netstandard2.0\AudioConverter.deps.json
+D:\OtherProjects\LipSync\AudioConverter\AudioConverter\bin\Release\netstandard2.0\AudioConverter.dll
+D:\OtherProjects\LipSync\AudioConverter\AudioConverter\bin\Release\netstandard2.0\AudioConverter.pdb
+D:\OtherProjects\LipSync\AudioConverter\AudioConverter\obj\Release\netstandard2.0\AudioConverter.dll
+D:\OtherProjects\LipSync\AudioConverter\AudioConverter\obj\Release\netstandard2.0\AudioConverter.pdb
